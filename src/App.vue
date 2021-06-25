@@ -2,11 +2,15 @@
   <div>
     <infoTypesList @selection="showInfoBox($event)"/>
   </div>
+  <!-- TODO: Insert code to create this from config -->
   <div v-if="selectedInfoType == 'personFields'">
     <infoTypePerson  @turtleOutput='updateTurtleText($event)'/>
   </div>
   <div v-if="selectedInfoType == 'projectFields'">
     <infoTypeProject />
+  </div>
+  <div v-if="selectedInfoType == 'organisationFields'">
+    <infoTypeOrganzation />
   </div>
   
 </template>
@@ -14,6 +18,7 @@
 <script>
 import infoTypePerson from "./components/infoTypePerson.vue";
 import infoTypeProject from "./components/infoTypeProject.vue";
+import infoTypeOrganzation from "./components/infoTypeOrganization.vue";
 import infoTypesList from "./components/infoTypesList.vue";
 
 export default {
@@ -21,6 +26,7 @@ export default {
   components: {
     infoTypeProject,
     infoTypePerson,
+    infoTypeOrganzation,
     infoTypesList
   },
   data() {
