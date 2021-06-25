@@ -3,7 +3,6 @@
     <infoTypesList @selection="showInfoBox($event)"/>
   </div>
   <div v-if="selectedInfoType == 'personFields'">
-    <h3>Person Type</h3>
     <infoTypePerson  @turtleOutput='updateTurtleText($event)'/>
   </div>
   <div v-if="selectedInfoType == 'projectFields'">
