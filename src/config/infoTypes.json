@@ -1,0 +1,24 @@
+{
+	"infoTypes": [
+		{
+			"name": "person",
+			"app": "personFields"
+		},
+		{
+			"name": "project",
+			"app": "projectFields"
+		},
+		{
+			"name": "info snippet",
+			"app": "infoFields"
+		},
+		{
+			"name": "organisation",
+			"app": "organisationFields"
+		},
+		{
+			"name": "relationship",
+			"app": "relationshipFields"
+		}
+	]
+}
