@@ -17,7 +17,7 @@
         <div id="infoTypeSelection">
           <span v-for="item in infoTypes" :key="item.name">
             <input type="radio" @change="onChange($event)" :id="item.name" name="infoType" :value="item.app">
-            <label for="{{item.name}}">{{item.name}}</label><br>
+            <label>{{item.name}}</label><br>
           </span>
         </div>
 
