@@ -7,26 +7,20 @@
     <infoTypePerson  @turtleOutput='updateTurtleText($event)'/>
   </div>
   <div v-if="selectedInfoType == 'projectFields'">
-    <h3>Project Type</h3>
-    <turtleItem  />
-  </div>
-  <div>
-    <turtleText :prefixes="turtleData.prefixes" :tripples="turtleData.tripples"/>
+    <infoTypeProject />
   </div>
   
 </template>
 
 <script>
-import turtleItem from "./components/turtleItem.vue";
-import turtleText from "./components/turtleText.vue";
 import infoTypePerson from "./components/infoTypePerson.vue";
+import infoTypeProject from "./components/infoTypeProject.vue";
 import infoTypesList from "./components/infoTypesList.vue";
 
 export default {
   name: "App",
   components: {
-    turtleItem,
-    turtleText,
+    infoTypeProject,
     infoTypePerson,
     infoTypesList
   },
