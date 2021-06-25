@@ -100,9 +100,6 @@ export default {
       description: "",
       funderID: "",
       parentOrganizationID: "",
-      subject: "",
-      predicate: "",
-      object: "",
     };
   },
 };
