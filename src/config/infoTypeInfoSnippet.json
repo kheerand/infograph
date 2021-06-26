@@ -23,7 +23,7 @@
 			{
 				"label": "Description",
 				"predicate": "schema:description",
-				"type": "textarea",
+				"type": "text",
 				"literal": true,
 				"value": ""
 			},
