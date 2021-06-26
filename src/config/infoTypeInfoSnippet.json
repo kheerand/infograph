@@ -1,0 +1,55 @@
+{
+	"title": "Information Snippet",
+	"prefixes": [
+		"@PREFIX : <http://my_info_graph/>",
+		"@PREFIX schema: <https://schema.org>",
+		"@PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>",
+		"@PREFIX skos: <http://www.w3.org/2004/02/skos/core#>"
+	],
+	"fields": {
+		"predicate": {
+			"label": "Name ID",
+			"class": "schema:NewsArticle",
+			"literal": false,
+			"value": ""
+		},
+		"subjects": [
+			{
+				"label": "Name",
+				"predicate": "schema:name",
+				"type": "text",
+				"literal": true,
+				"value": ""
+			},
+			{
+				"label": "Description",
+				"predicate": "schema:description",
+				"type": "text",
+				"literal": true,
+				"value": ""
+			},
+			{
+				"label": "Date",
+				"predicate": "schema:datePublished",
+				"type": "text",
+				"literal": true,
+				"value": ""
+			},
+			{
+				"label": "Source",
+				"predicate": "schema:creator",
+				"type": "text",
+				"literal": false,
+				"value": ""
+			},
+			{
+				"label": "Related to",
+				"predicate": "skos:related",
+				"type": "text",
+				"value": "",
+				"literal": false,
+				"repeatable": true
+			}
+		]
+	}
+}

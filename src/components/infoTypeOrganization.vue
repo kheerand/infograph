@@ -63,7 +63,7 @@
 </template>
 
 <script>
-import json from '@/config/infoTypeProject.json'; // Change it so that this can be specified during app call.
+import json from '@/config/infoTypeOrganization.json'; // Change it so that this can be specified during app call.
 
 export default {
   name: "turtleItem",
