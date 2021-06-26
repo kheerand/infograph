@@ -18,7 +18,7 @@
             <textarea rows=4 cols=50 v-model="subject.value" />
           </span>
           <span v-else>
-            <input type="subject.type" v-model="subject.value" />
+            <input :type="subject.type" v-model="subject.value" />
           </span>
         </td>
       </tr>
