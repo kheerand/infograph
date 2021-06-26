@@ -27,7 +27,7 @@
         </p>
         <hr />
       </div>
-      
+
       <div id="turtle_prefixes">
         <p>
           <span v-for="prefix in prefixes" :key="prefix">
@@ -38,7 +38,7 @@
 
       <div id="turtle_tripples">
         <span v-if="fields.predicate.value != ''">
-          :{{ fields.predicate.value }} a {{ fields.predicate.type }}.<br />
+          :{{ fields.predicate.value }} a {{ fields.predicate.class }}.<br />
         </span>
         <span v-for="subject in fields.subjects" :key="subject">
           <span v-if="subject.value != ''">
@@ -57,49 +57,16 @@
 </template>
 
 <script>
+import json from '@/config/infoTypeInfoSnippet.json'; // Change it so that this can be specified during app call.
+
 export default {
   name: "turtleItem",
   props: {},
   data() {
     return {
-      prefixes: [
-        "@PREFIX : <http://my_info_graph/>", // try and load this from a config file in the future.
-        "@PREFIX schema: <https://schema.org>",
-        "@PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>",
-      ],
-      nameID: "",
-      name: "",
-      description: "",
-      funderID: "",
-      parentOrganizationID: "",
-      fields: {
-        predicate: {
-          label: "Name ID",
-          type: "schema:NewsArticle",
-          value: "",
-        },
-        subjects: [
-          {
-            label: "Name",
-            predicate: "schema:name",
-            type: "l",
-            value: "",
-          },
-          {
-            label: "Description",
-            predicate: "schema:description",
-            type: "l",
-            value: "",
-          },
-          {
-            label: "Date",
-            predicate: "schema:date",
-            type: "s",
-            value: "",
-          },
-        ],
-      },
-    };
+      prefixes: json.prefixes,
+      fields: json.fields
+    }
   },
 };
 </script>
