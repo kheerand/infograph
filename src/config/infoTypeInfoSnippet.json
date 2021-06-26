@@ -9,6 +9,7 @@
 		"predicate": {
 			"label": "Name ID",
 			"class": "schema:NewsArticle",
+			"literal": false,
 			"value": ""
 		},
 		"subjects": [
@@ -16,31 +17,36 @@
 				"label": "Name",
 				"predicate": "schema:name",
 				"type": "text",
+				"literal": true,
 				"value": ""
 			},
 			{
 				"label": "Description",
 				"predicate": "schema:description",
-				"type": "textbox",
+				"type": "textarea",
+				"literal": true,
 				"value": ""
 			},
 			{
 				"label": "Date",
 				"predicate": "schema:datePublished",
 				"type": "text",
+				"literal": true,
 				"value": ""
 			},
 			{
 				"label": "Source",
 				"predicate": "schema:creator",
-				"type": "link",
+				"type": "text",
+				"literal": false,
 				"value": ""
 			},
 			{
 				"label": "Related to",
 				"predicate": "skos:related",
-				"type": "link",
+				"type": "text",
 				"value": "",
+				"literal": false,
 				"repeatable": true
 			}
 		]
