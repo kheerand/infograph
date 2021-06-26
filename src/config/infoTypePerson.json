@@ -1,0 +1,76 @@
+{
+	"title": "Person",
+	"labelPredicate": "schema:name",
+	"prefixes": [
+		"@PREFIX : <http://my_info_graph/>",
+		"@PREFIX schema: <https://schema.org>",
+		"@PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>"
+	],
+	"fields": {
+		"predicate": {
+			"label": "Person ID",
+			"class": "schema:Person",
+			"literal": false,
+			"value": ""
+		},
+		"subjects": [
+			{
+				"label": "Person's name",
+				"predicate": "schema:name",
+				"type": "text",
+				"literal": true,
+				"value": ""
+			},
+			{
+				"label": "Description",
+				"predicate": "schema:description",
+				"type": "textarea",
+				"literal": true,
+				"value": ""
+			},
+			{
+				"label": "Email",
+				"predicate": "schema:email",
+				"type": "text",
+				"literal": true,
+				"value": ""
+			},
+			{
+				"label": "Works for (Org ID)",
+				"predicate": "schema:worksFor",
+				"type": "text",
+				"literal": false,
+				"value": ""
+			},
+			{
+				"label": "Job title",
+				"predicate": "schema:jobTitle",
+				"type": "text",
+				"literal": true,
+				"value": ""
+			},
+			{
+				"label": "Children",
+				"predicate": "schema:children",
+				"type": "textarea",
+				"literal": true,
+				"value": ""
+			},
+			{
+				"label": "Knows (Person ID)",
+				"predicate": "schema:knows",
+				"type": "text",
+				"literal": false,
+				"value": ""
+			},
+			{
+				"label": "Knows about",
+				"predicate": "skos:knowsAbout",
+				"type": "textarea",
+				"value": "",
+				"literal": true,
+				"repeatable": true
+			}
+		]
+	}
+}
