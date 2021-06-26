@@ -1,6 +1,6 @@
 <template>
   <div id="input_area">
-    <h3>Information snippet</h3>
+    <h3>{{title}}</h3>
     <table>
       <tr class="input_row">
         <td class="input_heading">
@@ -70,7 +70,7 @@ export default {
   props: {},
   data() {
     return {
-      json: null,
+      title: json.title,
       prefixes: json.prefixes,
       fields: json.fields
     }
