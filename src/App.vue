@@ -12,6 +12,9 @@
   <div v-if="selectedInfoType == 'organisationFields'">
     <infoTypeOrganzation />
   </div>
+  <div v-if="selectedInfoType == 'infoFields'">
+    <infoTypeInfoSnippet />
+  </div>
   
 </template>
 
@@ -19,6 +22,7 @@
 import infoTypePerson from "./components/infoTypePerson.vue";
 import infoTypeProject from "./components/infoTypeProject.vue";
 import infoTypeOrganzation from "./components/infoTypeOrganization.vue";
+import infoTypeInfoSnippet from "./components/infoTypeInfoSnippet.vue";
 import infoTypesList from "./components/infoTypesList.vue";
 
 export default {
@@ -27,6 +31,7 @@ export default {
     infoTypeProject,
     infoTypePerson,
     infoTypeOrganzation,
+    infoTypeInfoSnippet,
     infoTypesList
   },
   data() {
