@@ -1,5 +1,6 @@
 <template>
   <div id="input_area">
+    <h3>Information snippet</h3>
     <table>
       <tr class="input_row">
         <td class="input_heading">
