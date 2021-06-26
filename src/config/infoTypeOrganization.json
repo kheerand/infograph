@@ -2,9 +2,9 @@
 	"title": "Organisation",
 	"labelPredicate": "schema:name",
 	"prefixes": [
-		"@PREFIX : <http://my_info_graph/>",
-		"@PREFIX schema: <https://schema.org>",
-		"@PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>"
+		"@prefix : <http://my_info_graph/>.",
+		"@prefix schema: <https://schema.org/>.",
+		"@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>."
 	],
 	"fields": {
 		"predicate": {
