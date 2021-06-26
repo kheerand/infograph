@@ -1,0 +1,61 @@
+{
+	"title": "Organisation",
+	"prefixes": [
+		"@PREFIX : <http://my_info_graph/>",
+		"@PREFIX schema: <https://schema.org>",
+		"@PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>"
+	],
+	"fields": {
+		"predicate": {
+			"label": "Name ID",
+			"class": "schema:Organization",
+			"literal": false,
+			"value": ""
+		},
+		"subjects": [
+			{
+				"label": "Name",
+				"predicate": "schema:name",
+				"type": "text",
+				"literal": true,
+				"value": ""
+			},
+			{
+				"label": "Description",
+				"predicate": "schema:description",
+				"type": "textarea",
+				"literal": true,
+				"value": ""
+			},
+			{
+				"label": "Funder ID",
+				"predicate": "schema:funder",
+				"type": "text",
+				"literal": false,
+				"value": ""
+			},
+			{
+				"label": "Parent Organisation ID",
+				"predicate": "schema:parentOrganization",
+				"type": "text",
+				"literal": true,
+				"value": ""
+			},
+			{
+				"label": "URL",
+				"predicate": "schema:url",
+				"type": "text",
+				"literal": true,
+				"value": ""
+			},
+			{
+				"label": "Related",
+				"predicate": "skos:related",
+				"type": "text",
+				"value": "",
+				"literal": false,
+				"repeatable": true
+			}
+		]
+	}
+}
