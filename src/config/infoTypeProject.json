@@ -1,5 +1,6 @@
 {
 	"title": "Project",
+	"labelPredicate": "schema:name",
 	"prefixes": [
 		"@PREFIX : <http://my_info_graph/>",
 		"@PREFIX schema: <https://schema.org>",
