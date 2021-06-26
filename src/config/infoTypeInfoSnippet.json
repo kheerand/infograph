@@ -1,4 +1,5 @@
 {
+	"title": "Information Snippet",
 	"prefixes": [
 		"@PREFIX : <http://my_info_graph/>",
 		"@PREFIX schema: <https://schema.org>",
