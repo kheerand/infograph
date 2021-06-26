@@ -1,0 +1,136 @@
+<template>
+  <div id="input_area">
+    <table>
+      <tr class="input_row">
+        <td class="input_heading">
+          {{ fields.predicate.label }}
+        </td>
+        <td class="input_input">
+          <input type="text" v-model="fields.predicate.value" />
+        </td>
+      </tr>
+      <tr class="input_row" v-for="subject in fields.subjects" :key="subject">
+        <td class="input_heading">
+          {{ subject.label }}
+        </td>
+        <td class="input_input">
+          <input type="text" v-model="subject.value" />
+        </td>
+      </tr>
+    </table>
+
+    <div id="turtle_snippet">
+      <div id="turtle_preamble">
+        <h4>Turtle snippet</h4>
+        <p>
+          <em>Copy and paste the turtle snippet below to GraphDB</em>
+        </p>
+        <hr />
+      </div>
+      
+      <div id="turtle_prefixes">
+        <p>
+          <span v-for="prefix in prefixes" :key="prefix">
+            {{ prefix }}<br />
+          </span>
+        </p>
+      </div>
+
+      <div id="turtle_tripples">
+        <span v-if="fields.predicate.value != ''">
+          :{{ fields.predicate.value }} a {{ fields.predicate.type }}.<br />
+        </span>
+        <span v-for="subject in fields.subjects" :key="subject">
+          <span v-if="subject.value != ''">
+            <span> :{{ fields.predicate.value }} {{ subject.predicate }} </span>
+            <span v-if="subject.type == 'l'">
+              "{{ subject.value }}".<br />
+            </span>
+            <span v-if="subject.type == 's'">
+              :{{ subject.value }}.<br />
+            </span>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "turtleItem",
+  props: {},
+  data() {
+    return {
+      prefixes: [
+        "@PREFIX : <http://my_info_graph/>", // try and load this from a config file in the future.
+        "@PREFIX schema: <https://schema.org>",
+        "@PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>",
+      ],
+      nameID: "",
+      name: "",
+      description: "",
+      funderID: "",
+      parentOrganizationID: "",
+      fields: {
+        predicate: {
+          label: "Name ID",
+          type: "schema:NewsArticle",
+          value: "",
+        },
+        subjects: [
+          {
+            label: "Name",
+            predicate: "schema:name",
+            type: "l",
+            value: "",
+          },
+          {
+            label: "Description",
+            predicate: "schema:description",
+            type: "l",
+            value: "",
+          },
+          {
+            label: "Date",
+            predicate: "schema:date",
+            type: "s",
+            value: "",
+          },
+        ],
+      },
+    };
+  },
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+h3 {
+  margin: 40px 0 0;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
+#turtle_snippet {
+  text-align: left;
+  background: aliceblue;
+}
+#turtle_preamble {
+  background: beige;
+}
+.input_heading {
+  text-align: right;
+}
+.input_input {
+  text-align: left;
+}
+</style>
