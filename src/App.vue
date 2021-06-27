@@ -1,21 +1,24 @@
 <template>
-  <div>
-    <infoTypesList @selection="showInfoBox($event)"/>
+  <div class="containter">
+  <div class="left">
+    <infoTypesList @selection="showInfoBox($event)" />
   </div>
   <!-- TODO: Insert code to create this from config -->
-  <div v-if="selectedInfoType == 'personFields'">
-    <infoTypePerson  @turtleOutput='updateTurtleText($event)'/>
+  <div class="right">
+    <div v-if="selectedInfoType == 'personFields'">
+      <infoTypePerson @turtleOutput="updateTurtleText($event)" />
+    </div>
+    <div v-if="selectedInfoType == 'projectFields'">
+      <infoTypeProject />
+    </div>
+    <div v-if="selectedInfoType == 'organisationFields'">
+      <infoTypeOrganzation />
+    </div>
+    <div v-if="selectedInfoType == 'infoFields'">
+      <infoTypeInfoSnippet />
+    </div>
   </div>
-  <div v-if="selectedInfoType == 'projectFields'">
-    <infoTypeProject />
   </div>
-  <div v-if="selectedInfoType == 'organisationFields'">
-    <infoTypeOrganzation />
-  </div>
-  <div v-if="selectedInfoType == 'infoFields'">
-    <infoTypeInfoSnippet />
-  </div>
-  
 </template>
 
 <script>
@@ -32,17 +35,17 @@ export default {
     infoTypePerson,
     infoTypeOrganzation,
     infoTypeInfoSnippet,
-    infoTypesList
+    infoTypesList,
   },
   data() {
-    return{
+    return {
       turtleState: false,
-      selectedInfoType: '',
+      selectedInfoType: "",
       turtleData: {
-        prefixes: '',
-        tripples: ''
-      }
-    }
+        prefixes: "",
+        tripples: "",
+      },
+    };
   },
   methods: {
     showInfoBox(selectedType) {
@@ -50,10 +53,9 @@ export default {
     },
     updateTurtleText(turtleOutput) {
       this.turtleData = turtleOutput;
-      console.log(turtleOutput)
-    }
-  }
-  
+      console.log(turtleOutput);
+    },
+  },
 };
 </script>
 
@@ -65,5 +67,14 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.left{
+  float:left;
+  width:20%;
+  background-color: lightcyan;
+}
+.right {
+  float:right;
+  width:80%;
 }
 </style>
