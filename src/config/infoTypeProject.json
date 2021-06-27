@@ -50,6 +50,13 @@
 				"value": ""
 			},
 			{
+				"label": "Team member",
+				"predicate": "schema:member",
+				"type": "text",
+				"literal": false,
+				"value": ""
+			},
+			{
 				"label": "Related to",
 				"predicate": "skos:related",
 				"type": "text",

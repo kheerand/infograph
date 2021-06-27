@@ -17,6 +17,9 @@
     <div v-if="selectedInfoType == 'infoFields'">
       <infoTypeInfoSnippet />
     </div>
+  <div class="bottom">
+    <textarea cols="120" rows="20" />
+  </div>
   </div>
   </div>
 </template>
@@ -76,5 +79,9 @@ export default {
 .right {
   float:right;
   width:80%;
+}
+.bottom {
+  clear: both;
+  float:left;
 }
 </style>
