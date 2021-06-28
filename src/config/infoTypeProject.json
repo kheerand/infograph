@@ -5,7 +5,7 @@
 		"@prefix : <http://my_info_graph/>.",
 		"@prefix schema: <https://schema.org/>.",
 		"@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.",
-		"@prefix rdf: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>."
+		"@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>."
 	],
 	"fields": {
 		"predicate": {
@@ -20,42 +20,64 @@
 				"predicate": "schema:name",
 				"type": "text",
 				"literal": true,
-				"value": ""
+				"value": "",
+				"display": true
 			},
 			{
 				"label": "Description",
 				"predicate": "schema:description",
 				"type": "textarea",
 				"literal": true,
-				"value": ""
+				"value": "",
+				"display": true
+			},
+			{
+				"label": "Notes",
+				"predicate": "rdf:Bag",
+				"type": "text",
+				"literal": false,
+				"value": "++Notes",
+				"display": false
+			},
+			{
+				"label": "Project Members",
+				"predicate": "rdf:Bag",
+				"type": "text",
+				"literal": false,
+				"value": "++People",
+				"display": false
 			},
 			{
 				"label": "Funder ID",
 				"predicate": "schema:funder",
 				"type": "text",
 				"literal": false,
-				"value": ""
+				"value": "",
+				"display": true
 			},
 			{
 				"label": "Parent Organisation ID",
 				"predicate": "schema:parentOrganization",
 				"type": "text",
 				"literal": false,
-				"value": ""
+				"value": "",
+				"display": true
 			},
 			{
 				"label": "Project URL",
 				"predicate": "schema:url",
 				"type": "text",
 				"literal": true,
-				"value": ""
+				"value": "",
+				"display": true
 			},
 			{
 				"label": "Team member",
 				"predicate": "schema:member",
 				"type": "text",
 				"literal": false,
-				"value": ""
+				"value": "",
+				"display": true
 			},
 			{
 				"label": "Related to",
@@ -63,7 +85,8 @@
 				"type": "text",
 				"value": "",
 				"literal": false,
-				"repeatable": true
+				"repeatable": true,
+				"display": true
 			}
 		]
 	}
