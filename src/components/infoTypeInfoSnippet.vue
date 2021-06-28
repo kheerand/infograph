@@ -55,6 +55,9 @@
             <span v-else>
               :{{ subject.value }}.<br />
             </span>
+            <span v-if="subject.predicate == labelPredicate"> 
+              :{{ fields.predicate.value}} skos:label "{{subject.value}}".<br>
+            </span>
           </span>
         </span>
       </div>
@@ -71,6 +74,7 @@ export default {
   data() {
     return {
       title: json.title,
+      labelPredicate: json.labelPredicate,
       prefixes: json.prefixes,
       fields: json.fields
     }

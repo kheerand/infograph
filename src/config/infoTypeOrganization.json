@@ -1,0 +1,85 @@
+{
+	"title": "Organisation",
+	"labelPredicate": "schema:name",
+	"prefixes": [
+		"@prefix : <http://my_info_graph/>.",
+		"@prefix schema: <https://schema.org/>.",
+		"@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.",
+		"@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>."
+	],
+	"fields": {
+		"predicate": {
+			"label": "Name ID",
+			"class": "schema:Organization",
+			"literal": false,
+			"value": ""
+		},
+		"subjects": [
+			{
+				"label": "Name",
+				"predicate": "schema:name",
+				"type": "text",
+				"literal": true,
+				"display": true,
+				"value": ""
+			},
+			{
+				"label": "Description",
+				"predicate": "schema:description",
+				"type": "textarea",
+				"literal": true,
+				"display": true,
+				"value": ""
+			},
+			{
+				"label": "Funder ID",
+				"predicate": "schema:funder",
+				"type": "text",
+				"literal": false,
+				"display": true,
+				"value": ""
+			},
+			{
+				"label": "Parent Organisation ID",
+				"predicate": "schema:parentOrganization",
+				"type": "text",
+				"literal": true,
+				"display": true,
+				"value": ""
+			},
+			{
+				"label": "URL",
+				"predicate": "schema:url",
+				"type": "text",
+				"literal": true,
+				"display": true,
+				"value": ""
+			},
+			{
+				"label": "People",
+				"predicate": "rdf:Bag",
+				"type": "text",
+				"literal": false,
+				"value": "++People",
+				"display": false
+			},
+			{
+				"label": "Notes",
+				"predicate": "rdf:Bag",
+				"type": "text",
+				"literal": false,
+				"value": "++Notes",
+				"display": false
+			},
+			{
+				"label": "Related",
+				"predicate": "skos:related",
+				"type": "text",
+				"value": "",
+				"literal": false,
+				"display": true,
+				"repeatable": true
+			}
+		]
+	}
+}
