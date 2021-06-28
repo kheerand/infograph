@@ -6,7 +6,7 @@
 		"@prefix schema: <https://schema.org/>.",
 		"@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.",
 		"@prefix skos: <http://www.w3.org/2004/02/skos/core#>.",
-		"@prefix rdf: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>."
+		"@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>."
 	],
 	"fields": {
 		"predicate": {
@@ -21,13 +21,15 @@
 				"predicate": "schema:name",
 				"type": "text",
 				"literal": true,
+				"display": true,
 				"value": ""
 			},
 			{
 				"label": "Description",
 				"predicate": "schema:description",
-				"type": "text",
+				"type": "textarea",
 				"literal": true,
+				"display": true,
 				"value": ""
 			},
 			{
@@ -35,6 +37,7 @@
 				"predicate": "schema:datePublished",
 				"type": "text",
 				"literal": true,
+				"display": true,
 				"value": ""
 			},
 			{
@@ -42,6 +45,7 @@
 				"predicate": "schema:creator",
 				"type": "text",
 				"literal": false,
+				"display": true,
 				"value": ""
 			},
 			{
@@ -49,6 +53,7 @@
 				"predicate": "skos:related",
 				"type": "text",
 				"value": "",
+				"display": true,
 				"literal": false,
 				"repeatable": true
 			}
