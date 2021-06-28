@@ -1,6 +1,6 @@
 <template>
   <div id="input_area">
-    <h3>{{title}}</h3>
+    <h3>{{ title }}</h3>
     <table>
       <tr class="input_row">
         <td class="input_heading">
@@ -11,10 +11,10 @@
         </td>
       </tr>
       <tr class="input_row" v-for="subject in fields.subjects" :key="subject">
-        <td class="input_heading">
+        <td v-if="subject.display == true" class="input_heading">
           {{ subject.label }}
         </td>
-        <td class="input_input">
+        <td v-if="subject.display == true" class="input_input">
           <span v-if="subject.type == 'textarea'">
             <textarea rows=4 cols=50 v-model="subject.value" />
           </span>
@@ -52,8 +52,14 @@
             <span v-if="subject.literal == true">
               "{{ subject.value }}".<br />
             </span>
-            <span v-else>
-              :{{ subject.value }}.<br />
+            <span v-else> 
+              <!-- Adjust the value if it is prefixed with ++ to append the predicate value in front -->
+              :{{ adjustedValue(fields.predicate.value, subject.value) }}.<br /> 
+            </span>
+            <span v-if="subject.predicate == labelPredicate">
+              :{{ fields.predicate.value }} skos:label "{{
+                subject.value
+              }}".<br />
             </span>
           </span>
         </span>
@@ -63,7 +69,7 @@
 </template>
 
 <script>
-import json from '@/config/infoTypeProject.json'; // Change it so that this can be specified during app call.
+import json from "@/config/infoTypeProject.json"; // Change it so that this can be specified during app call.
 
 export default {
   name: "turtleItem",
@@ -71,10 +77,24 @@ export default {
   data() {
     return {
       title: json.title,
+      labelPredicate: json.labelPredicate,
       prefixes: json.prefixes,
-      fields: json.fields
-    }
+      fields: json.fields,
+    };
   },
+  methods: {
+    adjustedValue(predicate, val) {
+      var computedVal = String;
+
+      if (val.substring(0,2) == "++") {
+        computedVal = predicate + "_" + val.substring(2);  
+      }
+      else {
+        computedVal = val;
+      }
+      return(computedVal);
+    }
+  }
 };
 </script>
 
