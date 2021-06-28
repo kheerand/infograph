@@ -1,5 +1,5 @@
 {
-	"title": "Organisation",
+	"title": "Person",
 	"labelPredicate": "schema:name",
 	"prefixes": [
 		"@prefix : <http://my_info_graph/>.",
@@ -9,14 +9,14 @@
 	],
 	"fields": {
 		"predicate": {
-			"label": "Name ID",
-			"class": "schema:Organization",
+			"label": "Person ID",
+			"class": "schema:Person",
 			"literal": false,
 			"value": ""
 		},
 		"subjects": [
 			{
-				"label": "Name",
+				"label": "Person's name",
 				"predicate": "schema:name",
 				"type": "text",
 				"literal": true,
@@ -30,32 +30,46 @@
 				"value": ""
 			},
 			{
-				"label": "Funder ID",
-				"predicate": "schema:funder",
+				"label": "Email",
+				"predicate": "schema:email",
+				"type": "text",
+				"literal": true,
+				"value": ""
+			},
+			{
+				"label": "Works for (Org ID)",
+				"predicate": "schema:worksFor",
 				"type": "text",
 				"literal": false,
 				"value": ""
 			},
 			{
-				"label": "Parent Organisation ID",
-				"predicate": "schema:parentOrganization",
+				"label": "Job title",
+				"predicate": "schema:jobTitle",
 				"type": "text",
 				"literal": true,
 				"value": ""
 			},
 			{
-				"label": "URL",
-				"predicate": "schema:url",
-				"type": "text",
+				"label": "Children",
+				"predicate": "schema:children",
+				"type": "textarea",
 				"literal": true,
 				"value": ""
 			},
 			{
-				"label": "Related",
-				"predicate": "skos:related",
+				"label": "Knows (Person ID)",
+				"predicate": "schema:knows",
 				"type": "text",
+				"literal": false,
+				"value": ""
+			},
+			{
+				"label": "Knows about",
+				"predicate": "skos:knowsAbout",
+				"type": "textarea",
 				"value": "",
-				"literal": false,
+				"literal": true,
 				"repeatable": true
 			}
 		]
