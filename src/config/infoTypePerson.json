@@ -5,7 +5,7 @@
 		"@prefix : <http://my_info_graph/>.",
 		"@prefix schema: <https://schema.org/>.",
 		"@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.",
-		"@prefix rdf: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>."
+		"@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>."
 	],
 	"fields": {
 		"predicate": {
@@ -65,6 +65,14 @@
 				"value": ""
 			},
 			{
+				"label": "Notes",
+				"predicate": "rdf:Bag",
+				"type": "text",
+				"literal": false,
+				"value": "++Notes",
+				"display": false
+			},
+			{
 				"label": "Knows about",
 				"predicate": "skos:knowsAbout",
 				"type": "textarea",
@@ -72,6 +80,7 @@
 				"literal": true,
 				"repeatable": true
 			}
+			
 		]
 	}
 }
