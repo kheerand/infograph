@@ -16,7 +16,7 @@
         </td>
         <td v-if="subject.display == true" class="input_input">
           <span v-if="subject.type == 'textarea'">
-            <textarea rows=4 cols=50 v-model="subject.value" />
+            <textarea rows="4" cols="50" v-model="subject.value" />
           </span>
           <span v-else>
             <input :type="subject.type" v-model="subject.value" />
@@ -25,77 +25,47 @@
       </tr>
     </table>
 
-    <div id="turtle_snippet">
-      <div id="turtle_preamble">
-        <h4>Turtle snippet</h4>
-        <p>
-          <em>Copy and paste the turtle snippet below to GraphDB</em>
-        </p>
-        <hr />
-      </div>
-
-      <div id="turtle_prefixes">
-        <p>
-          <span v-for="prefix in prefixes" :key="prefix">
-            {{ prefix }}<br />
-          </span>
-        </p>
-      </div>
-
-      <div id="turtle_tripples">
-        <span v-if="fields.predicate.value != ''">
-          :{{ fields.predicate.value }} a {{ fields.predicate.class }}.<br />
-        </span>
-        <span v-for="subject in fields.subjects" :key="subject">
-          <span v-if="subject.value != ''">
-            <span> :{{ fields.predicate.value }} {{ subject.predicate }} </span>
-            <span v-if="subject.literal == true">
-              "{{ subject.value }}".<br />
-            </span>
-            <span v-else> 
-              <!-- Adjust the value if it is prefixed with ++ to append the predicate value in front -->
-              :{{ adjustedValue(fields.predicate.value, subject.value) }}.<br /> 
-            </span>
-            <span v-if="subject.predicate == labelPredicate">
-              :{{ fields.predicate.value }} rdfs:label "{{
-                subject.value
-              }}".<br />
-            </span>
-          </span>
-        </span>
-      </div>
+    <div id="turtle_text">
+      <turtleText
+        :labelPredicate="labelPredicate"
+        :prefixes="prefixes"
+        :fields="fields"
+      />
     </div>
   </div>
 </template>
 
 
 <script>
-import json from '@/config/infoTypeOrganization.json'; // Change it so that this can be specified during app call.
+import json from "@/config/infoTypeOrganization.json"; // Change it so that this can be specified during app call.
+import turtleText from "@/components/turtleText.vue";
 
 export default {
   name: "turtleItem",
   props: {},
+  components: {
+    turtleText,
+  },
   data() {
     return {
       title: json.title,
       labelPredicate: json.labelPredicate,
       prefixes: json.prefixes,
-      fields: json.fields
+      fields: json.fields,
     };
   },
-    methods: {
-      adjustedValue(predicate, val) {
-        var computedVal = String;
+  methods: {
+    adjustedValue(predicate, val) {
+      var computedVal = String;
 
-        if (val.substring(0,2) == "++") {
-          computedVal = predicate + "_" + val.substring(2);  
-        }
-        else {
-          computedVal = val;
-        }
-        return(computedVal);
+      if (val.substring(0, 2) == "++") {
+        computedVal = predicate + "_" + val.substring(2);
+      } else {
+        computedVal = val;
       }
-    }
+      return computedVal;
+    },
+  },
 };
 </script>
 
@@ -115,7 +85,7 @@ li {
 a {
   color: #42b983;
 }
-#turtle_snippet {
+#turtle_text {
   text-align: left;
   background: aliceblue;
 }
