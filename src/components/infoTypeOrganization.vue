@@ -57,7 +57,7 @@
               :{{ adjustedValue(fields.predicate.value, subject.value) }}.<br /> 
             </span>
             <span v-if="subject.predicate == labelPredicate">
-              :{{ fields.predicate.value }} skos:label "{{
+              :{{ fields.predicate.value }} rdfs:label "{{
                 subject.value
               }}".<br />
             </span>
