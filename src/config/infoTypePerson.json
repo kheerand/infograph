@@ -20,6 +20,7 @@
 				"predicate": "schema:name",
 				"type": "text",
 				"literal": true,
+				"display": true,
 				"value": ""
 			},
 			{
@@ -27,6 +28,7 @@
 				"predicate": "schema:description",
 				"type": "textarea",
 				"literal": true,
+				"display": true,
 				"value": ""
 			},
 			{
@@ -34,6 +36,7 @@
 				"predicate": "schema:email",
 				"type": "text",
 				"literal": true,
+				"display": true,
 				"value": ""
 			},
 			{
@@ -41,6 +44,7 @@
 				"predicate": "schema:worksFor",
 				"type": "text",
 				"literal": false,
+				"display": true,
 				"value": ""
 			},
 			{
@@ -48,6 +52,7 @@
 				"predicate": "schema:jobTitle",
 				"type": "text",
 				"literal": true,
+				"display": true,
 				"value": ""
 			},
 			{
@@ -55,6 +60,7 @@
 				"predicate": "schema:children",
 				"type": "textarea",
 				"literal": true,
+				"display": true,
 				"value": ""
 			},
 			{
@@ -62,6 +68,7 @@
 				"predicate": "schema:knows",
 				"type": "text",
 				"literal": false,
+				"display": true,
 				"value": ""
 			},
 			{
@@ -78,9 +85,9 @@
 				"type": "textarea",
 				"value": "",
 				"literal": true,
+				"display": true,
 				"repeatable": true
 			}
-			
 		]
 	}
 }
