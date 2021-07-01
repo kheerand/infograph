@@ -30,6 +30,7 @@
         :labelPredicate="labelPredicate"
         :prefixes="prefixes"
         :fields="fields"
+        @appendText="appendText($event)"
       />
     </div>
   </div>
@@ -64,6 +65,9 @@ export default {
         computedVal = val;
       }
       return computedVal;
+    },
+    appendText(value) {
+      this.$emit('appendText',value)
     },
   },
 };
