@@ -18,7 +18,8 @@
 			{
 				"label": "Name",
 				"predicate": "schema:name",
-				"type": "text",
+				"isClass": false,
+				"inputType": "text",
 				"literal": true,
 				"display": true,
 				"value": ""
@@ -26,7 +27,8 @@
 			{
 				"label": "Description",
 				"predicate": "schema:description",
-				"type": "textarea",
+				"isClass": false,
+				"inputType": "textarea",
 				"literal": true,
 				"display": true,
 				"value": ""
@@ -34,7 +36,8 @@
 			{
 				"label": "Funder ID",
 				"predicate": "schema:funder",
-				"type": "text",
+				"isClass": false,
+				"inputType": "text",
 				"literal": false,
 				"display": true,
 				"value": ""
@@ -42,7 +45,8 @@
 			{
 				"label": "Parent Organisation ID",
 				"predicate": "schema:parentOrganization",
-				"type": "text",
+				"isClass": false,
+				"inputType": "text",
 				"literal": false,
 				"display": true,
 				"value": ""
@@ -50,23 +54,28 @@
 			{
 				"label": "URL",
 				"predicate": "schema:url",
-				"type": "text",
+				"isClass": false,
+				"inputType": "text",
 				"literal": true,
 				"display": true,
 				"value": ""
 			},
 			{
 				"label": "People",
-				"predicate": "rdf:Bag",
-				"type": "text",
+				"predicate": "schema:employee",
+				"isClass": true,
+				"classType": "rdf:Bag",
+				"inputType": "text",
 				"literal": false,
 				"value": "++People",
 				"display": false
 			},
 			{
 				"label": "Notes",
-				"predicate": "rdf:Bag",
-				"type": "text",
+				"predicate": "skos:note",
+				"isClass": true,
+				"classType": "rdf:Bag",
+				"inputType": "text",
 				"literal": false,
 				"value": "++Notes",
 				"display": false
@@ -74,7 +83,7 @@
 			{
 				"label": "Related",
 				"predicate": "skos:related",
-				"type": "text",
+				"inputType": "text",
 				"value": "",
 				"literal": false,
 				"display": true,

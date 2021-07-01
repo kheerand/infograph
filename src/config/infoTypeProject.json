@@ -18,7 +18,8 @@
 			{
 				"label": "Project Name",
 				"predicate": "schema:name",
-				"type": "text",
+				"inputType": "text",
+				"isClass": false,
 				"literal": true,
 				"value": "",
 				"display": true
@@ -26,31 +27,17 @@
 			{
 				"label": "Description",
 				"predicate": "schema:description",
-				"type": "textarea",
+				"inputType": "textarea",
+				"isClass": false,
 				"literal": true,
 				"value": "",
 				"display": true
 			},
 			{
-				"label": "Notes",
-				"predicate": "rdf:Bag",
-				"type": "text",
-				"literal": false,
-				"value": "++Notes",
-				"display": false
-			},
-			{
-				"label": "Project Members",
-				"predicate": "rdf:Bag",
-				"type": "text",
-				"literal": false,
-				"value": "++People",
-				"display": false
-			},
-			{
 				"label": "Funder ID",
 				"predicate": "schema:funder",
-				"type": "text",
+				"inputType": "text",
+				"isClass": false,
 				"literal": false,
 				"value": "",
 				"display": true
@@ -58,7 +45,8 @@
 			{
 				"label": "Parent Organisation ID",
 				"predicate": "schema:parentOrganization",
-				"type": "text",
+				"inputType": "text",
+				"isClass": false,
 				"literal": false,
 				"value": "",
 				"display": true
@@ -66,24 +54,38 @@
 			{
 				"label": "Project URL",
 				"predicate": "schema:url",
-				"type": "text",
+				"inputType": "text",
+				"isClass": false,
 				"literal": true,
 				"value": "",
 				"display": true
 			},
 			{
-				"label": "Team member",
-				"predicate": "schema:member",
-				"type": "text",
+				"label": "Notes",
+				"predicate": "skos:note",
+				"inputType": "text",
+				"isClass": true,
+				"classType": "rdf:Bag",
 				"literal": false,
-				"value": "",
-				"display": true
+				"value": "++Notes",
+				"display": false
+			},
+			{
+				"label": "Project Members",
+				"predicate": "schema:member",
+				"inputType": "text",
+				"isClass": true,
+				"classType": "rdf:Bag",
+				"literal": false,
+				"value": "++People",
+				"display": false
 			},
 			{
 				"label": "Related to",
 				"predicate": "skos:related",
-				"type": "text",
+				"inputType": "text",
 				"value": "",
+				"isClass": false,
 				"literal": false,
 				"repeatable": true,
 				"display": true

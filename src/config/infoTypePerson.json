@@ -18,7 +18,8 @@
 			{
 				"label": "Person's name",
 				"predicate": "schema:name",
-				"type": "text",
+				"inputType": "text",
+				"isClass": false,
 				"literal": true,
 				"display": true,
 				"value": ""
@@ -26,7 +27,8 @@
 			{
 				"label": "Description",
 				"predicate": "schema:description",
-				"type": "textarea",
+				"inputType": "textarea",
+				"isClass": false,
 				"literal": true,
 				"display": true,
 				"value": ""
@@ -34,7 +36,8 @@
 			{
 				"label": "Email",
 				"predicate": "schema:email",
-				"type": "text",
+				"inputType": "text",
+				"isClass": false,
 				"literal": true,
 				"display": true,
 				"value": ""
@@ -42,7 +45,8 @@
 			{
 				"label": "Works for (Org ID)",
 				"predicate": "schema:worksFor",
-				"type": "text",
+				"inputType": "text",
+				"isClass": false,
 				"literal": false,
 				"display": true,
 				"value": ""
@@ -50,7 +54,8 @@
 			{
 				"label": "Job title",
 				"predicate": "schema:jobTitle",
-				"type": "text",
+				"inputType": "text",
+				"isClass": false,
 				"literal": true,
 				"display": true,
 				"value": ""
@@ -58,7 +63,8 @@
 			{
 				"label": "Children",
 				"predicate": "schema:children",
-				"type": "textarea",
+				"inputType": "textarea",
+				"isClass": false,
 				"literal": true,
 				"display": true,
 				"value": ""
@@ -66,15 +72,18 @@
 			{
 				"label": "Knows (Person ID)",
 				"predicate": "schema:knows",
-				"type": "text",
+				"inputType": "text",
+				"isClass": false,
 				"literal": false,
 				"display": true,
 				"value": ""
 			},
 			{
 				"label": "Notes",
-				"predicate": "rdf:Bag",
-				"type": "text",
+				"predicate": "skos:note",
+				"inputType": "text",
+				"isClass": true,
+				"classType": "rdf:Bag",
 				"literal": false,
 				"value": "++Notes",
 				"display": false
@@ -82,7 +91,7 @@
 			{
 				"label": "Knows about",
 				"predicate": "skos:knowsAbout",
-				"type": "textarea",
+				"inputType": "textarea",
 				"value": "",
 				"literal": true,
 				"display": true,

@@ -14,17 +14,23 @@
   </div>
   <span v-if="fields.predicate.value != ''">
     :{{ fields.predicate.value }} a {{ fields.predicate.class }}.<br />
-  </span>
-  <span v-for="subject in fields.subjects" :key="subject">
-    <span v-if="subject.value != ''">
-      <span> :{{ fields.predicate.value }} {{ subject.predicate }} </span>
-      <span v-if="subject.literal == true"> "{{ subject.value }}".<br /> </span>
-      <span v-else>
-        <!-- Adjust the value if it is prefixed with ++ to append the predicate value in front -->
-        :{{ adjustedValue(fields.predicate.value, subject.value) }}.<br />
-      </span>
-      <span v-if="subject.predicate == labelPredicate">
-        :{{ fields.predicate.value }} rdfs:label "{{ subject.value }}".<br />
+    <span v-for="subject in fields.subjects" :key="subject">
+      <span v-if="subject.value != ''">
+        <span> :{{ fields.predicate.value }} {{ subject.predicate }} </span>
+        <span v-if="subject.literal == true">
+          "{{ subject.value }}".<br />
+        </span>
+        <span v-else>
+          <!-- Adjust the value if it is prefixed with ++ to append the predicate value in front -->
+          :{{ adjustedValue(fields.predicate.value, subject.value) }}.<br />
+        </span>
+        <span v-if="subject.predicate == labelPredicate">
+          :{{ fields.predicate.value }} rdfs:label "{{ subject.value }}".<br />
+        </span>
+        <span v-if="subject.isClass == true">
+          :{{ adjustedValue(fields.predicate.value, subject.value) }} a
+          {{ subject.classType }}. <br />
+        </span>
       </span>
     </span>
   </span>

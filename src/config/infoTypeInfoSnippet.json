@@ -19,7 +19,8 @@
 			{
 				"label": "Name",
 				"predicate": "schema:name",
-				"type": "text",
+				"inputType": "text",
+				"isClass": false,
 				"literal": true,
 				"display": true,
 				"value": ""
@@ -27,7 +28,8 @@
 			{
 				"label": "Description",
 				"predicate": "schema:description",
-				"type": "textarea",
+				"inputType": "textarea",
+				"isClass": false,
 				"literal": true,
 				"display": true,
 				"value": ""
@@ -35,7 +37,8 @@
 			{
 				"label": "Date",
 				"predicate": "schema:datePublished",
-				"type": "text",
+				"inputType": "text",
+				"isClass": false,
 				"literal": true,
 				"display": true,
 				"value": ""
@@ -43,7 +46,8 @@
 			{
 				"label": "Source",
 				"predicate": "schema:creator",
-				"type": "text",
+				"inputType": "text",
+				"isClass": false,
 				"literal": false,
 				"display": true,
 				"value": ""
@@ -51,11 +55,12 @@
 			{
 				"label": "Related to",
 				"predicate": "skos:related",
-				"type": "text",
-				"value": "",
+				"inputType": "text",
+				"isClass": false,
 				"display": true,
 				"literal": false,
-				"repeatable": true
+				"repeatable": true,
+				"value": ""
 			}
 		]
 	}
