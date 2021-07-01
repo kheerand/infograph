@@ -15,11 +15,11 @@
           {{ subject.label }}
         </td>
         <td v-if="subject.display == true" class="input_input">
-          <span v-if="subject.type == 'textarea'">
+          <span v-if="subject.inputType == 'textarea'">
             <textarea rows="4" cols="50" v-model="subject.value" />
           </span>
           <span v-else>
-            <input :type="subject.type" v-model="subject.value" />
+            <input :type="subject.inputType" v-model="subject.value" />
           </span>
         </td>
       </tr>
