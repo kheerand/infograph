@@ -1,26 +1,26 @@
 <template>
   <div class="containter">
-  <div class="left">
-    <infoTypesList @selection="showInfoBox($event)" />
-  </div>
-  <!-- TODO: Insert code to create this from config -->
-  <div class="right">
-    <div v-if="selectedInfoType == 'personFields'">
-      <infoTypePerson @turtleOutput="updateTurtleText($event)" />
+    <div class="left">
+      <infoTypesList @selection="showInfoBox($event)" />
     </div>
-    <div v-if="selectedInfoType == 'projectFields'">
-      <infoTypeProject />
+    <!-- TODO: Insert code to create this from config -->
+    <div class="right">
+      <div v-if="selectedInfoType == 'personFields'">
+        <infoTypePerson @appendText="updateText($event)" />
+      </div>
+      <div v-if="selectedInfoType == 'projectFields'">
+        <infoTypeProject @appendText="updateText($event)" />
+      </div>
+      <div v-if="selectedInfoType == 'organisationFields'">
+        <infoTypeOrganzation @appendText="updateText($event)" />
+      </div>
+      <div v-if="selectedInfoType == 'infoFields'">
+        <infoTypeInfoSnippet @appendText="updateText($event)" />
+      </div>
+      <div class="bottom">
+        <textarea v-model="turtleText" cols="120" rows="20" />
+      </div>
     </div>
-    <div v-if="selectedInfoType == 'organisationFields'">
-      <infoTypeOrganzation />
-    </div>
-    <div v-if="selectedInfoType == 'infoFields'">
-      <infoTypeInfoSnippet />
-    </div>
-  <div class="bottom">
-    <textarea cols="120" rows="20" />
-  </div>
-  </div>
   </div>
 </template>
 
@@ -43,6 +43,7 @@ export default {
   data() {
     return {
       turtleState: false,
+      turtleText: "",
       selectedInfoType: "",
       turtleData: {
         prefixes: "",
@@ -58,6 +59,9 @@ export default {
       this.turtleData = turtleOutput;
       console.log(turtleOutput);
     },
+    updateText(value) {
+      this.turtleText += value + "\n";
+    },
   },
 };
 </script>
@@ -71,17 +75,17 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-.left{
-  float:left;
-  width:20%;
+.left {
+  float: left;
+  width: 20%;
   background-color: lightcyan;
 }
 .right {
-  float:right;
-  width:80%;
+  float: right;
+  width: 80%;
 }
 .bottom {
   clear: both;
-  float:left;
+  float: left;
 }
 </style>

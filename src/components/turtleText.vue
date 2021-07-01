@@ -33,6 +33,9 @@
         </span>
       </span>
     </span>
+    <span>
+    <p><button type="button" v-on:click="updateEvent"> Update text </button></p>
+    </span>
   </span>
 </template>
 
@@ -56,7 +59,53 @@ export default {
       }
       return computedVal;
     },
+    updateEvent() {
+      var textString = "";
+      var fields = this.fields;
+      var prefixes = this.prefixes;
+
+      // Add the prefixes
+      for (let prefix of prefixes) {
+        textString += prefix + "\n";
+      }
+      textString += "\n";
+
+      textString += ":" + fields.predicate.value +
+                    " a " + fields.predicate.class + ". \n"
+      // Add the fields
+      for (let subject of fields.subjects) {
+        if (subject.value != "") {
+          textString += ":" + fields.predicate.value +
+                        " " + subject.predicate;
+          
+          if (subject.literal == true) {
+            textString += " \"" + subject.value + "\".\n";
+          }
+          else {
+            textString += " :" + this.adjustedValue(fields.predicate.value, 
+                                                subject.value) + ".\n";
+          }
+
+          if (subject.predicate == this.labelPredicate) {
+            textString += ":" + fields.predicate.value +
+                          " rdfs:label \"" + subject.value + "\".\n";
+          }
+
+          if (subject.isClass == true) {
+            textString += ":" + this.adjustedValue(fields.predicate.value, 
+                                              subject.value) +
+                            " a " + subject.classType + ".\n";
+          }
+        }
+                      
+
+
+
+      }
+
+      this.$emit('appendText',textString)
   },
+  }
 };
 </script>
 
