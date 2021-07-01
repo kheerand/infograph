@@ -43,7 +43,7 @@
 				"label": "Parent Organisation ID",
 				"predicate": "schema:parentOrganization",
 				"type": "text",
-				"literal": true,
+				"literal": false,
 				"display": true,
 				"value": ""
 			},
