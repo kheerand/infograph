@@ -1,5 +1,5 @@
 {
-	"title": "Project",
+	"title": "Product",
 	"labelPredicate": "schema:name",
 	"prefixes": [
 		"@prefix : <http://my_info_graph/>.",
@@ -9,14 +9,14 @@
 	],
 	"fields": {
 		"predicate": {
-			"label": "Project ID",
-			"class": "schema:Project",
+			"label": "Product ID",
+			"class": "schema:Product",
 			"literal": false,
 			"value": ""
 		},
 		"subjects": [
 			{
-				"label": "Project Name",
+				"label": "Product Name",
 				"predicate": "schema:name",
 				"inputType": "text",
 				"isClass": false,
@@ -43,16 +43,7 @@
 				"display": true
 			},
 			{
-				"label": "Parent Organisation ID",
-				"predicate": "schema:parentOrganization",
-				"inputType": "text",
-				"isClass": false,
-				"literal": false,
-				"value": "",
-				"display": true
-			},
-			{
-				"label": "Project URL",
+				"label": "Product URL",
 				"predicate": "schema:url",
 				"inputType": "text",
 				"isClass": false,
@@ -69,25 +60,6 @@
 				"literal": false,
 				"value": "++Notes",
 				"display": false
-			},
-			{
-				"label": "Project Members",
-				"predicate": "schema:member",
-				"inputType": "text",
-				"isClass": true,
-				"classType": "rdf:Bag",
-				"literal": false,
-				"value": "++People",
-				"display": false
-			},
-			{
-				"label": "Owns",
-				"predicate": "schema:owns",
-				"isClass": false,
-				"inputType": "text",
-				"literal": false,
-				"display": true,
-				"value": ""
 			},
 			{
 				"label": "Related to",
