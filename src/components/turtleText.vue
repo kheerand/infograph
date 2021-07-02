@@ -14,18 +14,27 @@
   </div>
   <span v-if="fields.predicate.value != ''">
     :{{ fields.predicate.value }} a {{ fields.predicate.class }}.<br />
-  </span>
-  <span v-for="subject in fields.subjects" :key="subject">
-    <span v-if="subject.value != ''">
-      <span> :{{ fields.predicate.value }} {{ subject.predicate }} </span>
-      <span v-if="subject.literal == true"> "{{ subject.value }}".<br /> </span>
-      <span v-else>
-        <!-- Adjust the value if it is prefixed with ++ to append the predicate value in front -->
-        :{{ adjustedValue(fields.predicate.value, subject.value) }}.<br />
+    <span v-for="subject in fields.subjects" :key="subject">
+      <span v-if="subject.value != ''">
+        <span> :{{ fields.predicate.value }} {{ subject.predicate }} </span>
+        <span v-if="subject.literal == true">
+          "{{ subject.value }}".<br />
+        </span>
+        <span v-else>
+          <!-- Adjust the value if it is prefixed with ++ to append the predicate value in front -->
+          :{{ adjustedValue(fields.predicate.value, subject.value) }}.<br />
+        </span>
+        <span v-if="subject.predicate == labelPredicate">
+          :{{ fields.predicate.value }} rdfs:label "{{ subject.value }}".<br />
+        </span>
+        <span v-if="subject.isClass == true">
+          :{{ adjustedValue(fields.predicate.value, subject.value) }} a
+          {{ subject.classType }}. <br />
+        </span>
       </span>
-      <span v-if="subject.predicate == labelPredicate">
-        :{{ fields.predicate.value }} rdfs:label "{{ subject.value }}".<br />
-      </span>
+    </span>
+    <span>
+    <p><button type="button" v-on:click="updateEvent"> Update text </button></p>
     </span>
   </span>
 </template>
@@ -50,7 +59,53 @@ export default {
       }
       return computedVal;
     },
+    updateEvent() {
+      var textString = "";
+      var fields = this.fields;
+      var prefixes = this.prefixes;
+
+      // Add the prefixes
+      for (let prefix of prefixes) {
+        textString += prefix + "\n";
+      }
+      textString += "\n";
+
+      textString += ":" + fields.predicate.value +
+                    " a " + fields.predicate.class + ". \n"
+      // Add the fields
+      for (let subject of fields.subjects) {
+        if (subject.value != "") {
+          textString += ":" + fields.predicate.value +
+                        " " + subject.predicate;
+          
+          if (subject.literal == true) {
+            textString += " \"" + subject.value + "\".\n";
+          }
+          else {
+            textString += " :" + this.adjustedValue(fields.predicate.value, 
+                                                subject.value) + ".\n";
+          }
+
+          if (subject.predicate == this.labelPredicate) {
+            textString += ":" + fields.predicate.value +
+                          " rdfs:label \"" + subject.value + "\".\n";
+          }
+
+          if (subject.isClass == true) {
+            textString += ":" + this.adjustedValue(fields.predicate.value, 
+                                              subject.value) +
+                            " a " + subject.classType + ".\n";
+          }
+        }
+                      
+
+
+
+      }
+
+      this.$emit('appendText',textString)
   },
+  }
 };
 </script>
 
