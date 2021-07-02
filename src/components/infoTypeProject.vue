@@ -24,6 +24,9 @@
         </td>
       </tr>
     </table>
+    <div style="text-align:left;">
+          <p><button type="button" v-on:click="clearValues"> Clear text </button></p>
+    </div>
 
     <div id="turtle_text">
       <turtleText
@@ -67,7 +70,15 @@ export default {
     },
     appendText(value) {
       this.$emit('appendText',value)
-    }
+    },
+    clearValues() {
+      this.fields.predicate.value = "";
+      for (let item in this.fields.subjects) {
+        if (this.fields.subjects[item].value.substring(0,2) != "++") {
+            this.fields.subjects[item].value = "";
+        }
+      }
+    },
   },
 };
 </script>
