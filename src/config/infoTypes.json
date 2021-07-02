@@ -9,6 +9,10 @@
 			"app": "projectFields"
 		},
 		{
+			"name": "Product",
+			"app": "productFields"
+		},
+		{
 			"name": "info snippet",
 			"app": "infoFields"
 		},

@@ -81,6 +81,15 @@
 				"display": false
 			},
 			{
+				"label": "Owns",
+				"predicate": "schema:owns",
+				"isClass": false,
+				"inputType": "text",
+				"literal": false,
+				"display": true,
+				"value": ""
+			},
+			{
 				"label": "Related",
 				"predicate": "skos:related",
 				"inputType": "text",

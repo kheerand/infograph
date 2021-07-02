@@ -17,6 +17,9 @@
       <div v-if="selectedInfoType == 'infoFields'">
         <infoTypeInfoSnippet @appendText="updateText($event)" />
       </div>
+      <div v-if="selectedInfoType == 'productFields'">
+        <infoTypeProduct @appendText="updateText($event)" />
+      </div>
       <div class="bottom">
         <textarea v-model="turtleText" cols="120" rows="20" />
       </div>
@@ -27,6 +30,7 @@
 <script>
 import infoTypePerson from "./components/infoTypePerson.vue";
 import infoTypeProject from "./components/infoTypeProject.vue";
+import infoTypeProduct from "./components/infoTypeProduct.vue";
 import infoTypeOrganzation from "./components/infoTypeOrganization.vue";
 import infoTypeInfoSnippet from "./components/infoTypeInfoSnippet.vue";
 import infoTypesList from "./components/infoTypesList.vue";
@@ -39,6 +43,7 @@ export default {
     infoTypeOrganzation,
     infoTypeInfoSnippet,
     infoTypesList,
+    infoTypeProduct,
   },
   data() {
     return {
