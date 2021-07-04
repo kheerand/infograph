@@ -2,6 +2,16 @@
   <div id="input_area">
     <h3>{{ title }}</h3>
     <table>
+      <tr>
+        <td />
+        <td>
+          <div style="text-align: left">
+            <p>
+              <button type="button" v-on:click="clearValues">Clear text</button>
+            </p>
+          </div>
+        </td>
+      </tr>
       <tr class="input_row">
         <td class="input_heading">
           {{ fields.predicate.label }}
@@ -24,9 +34,6 @@
         </td>
       </tr>
     </table>
-    <div style="text-align:left;">
-          <p><button type="button" v-on:click="clearValues"> Clear text </button></p>
-    </div>
 
     <div id="turtle_text">
       <turtleText
