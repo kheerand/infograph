@@ -53,6 +53,15 @@
 				"value": ""
 			},
 			{
+				"label": "URL",
+				"predicate": "schema:url",
+				"isClass": false,
+				"inputType": "text",
+				"literal": true,
+				"display": true,
+				"value": ""
+			},
+			{
 				"label": "Related to",
 				"predicate": "skos:related",
 				"inputType": "text",
