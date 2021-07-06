@@ -22,6 +22,9 @@
       </div>
       <div class="bottom">
         <textarea v-model="turtleText" cols="120" rows="20" />
+        <p class="alignLeft">
+          <button id="clearButton" type="button" v-on:click="setText('')">Clear text area</button>
+        </p>
       </div>
     </div>
   </div>
@@ -60,8 +63,8 @@ export default {
     showInfoBox(selectedType) {
       this.selectedInfoType = selectedType;
     },
-    updateTurtleText(turtleOutput) {
-      this.turtleData = turtleOutput;
+    setText(turtleOutput) {
+      this.turtleText = turtleOutput;
       console.log(turtleOutput);
     },
     updateText(value) {
@@ -80,6 +83,9 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+#clearButton {
+  background-color: lightcoral;
+}
 .left {
   float: left;
   width: 20%;
@@ -92,5 +98,8 @@ export default {
 .bottom {
   clear: both;
   float: left;
+}
+.alignLeft {
+  text-align: left;
 }
 </style>
