@@ -1,22 +1,26 @@
 <template>
   <div class="Search_Output">
-    <h3>Search area</h3>
-    <p>insert search box here</p>
-    <h3>Search results</h3>
-    <searchGetResults :queryString="queryString"/>
+    <table class="table search_results">
+      <tr class="triple_variables">
+        <td v-for="v in resultVariables" :key="v">
+          {{ v }} 
+        </td>
+      </tr>
+    <tr v-for="triple in triples" :key="triple">
+        <td v-for="v in resultVariables" :key="v">
+          {{ triple[v].value }}
+        </td>
+    </tr>
+    </table>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
-import searchGetResults from "@/components/searchGetResults.vue";
-
+import axios from 'axios'
 
 export default {
-  components: { searchGetResults },
-  name: 'searchMain',
+  name: 'searchGetResults',
   props: {
-    msg: String,
     queryString: String,
   },
   data() {
