@@ -4,29 +4,25 @@
     <p>insert search box here</p>
     <searchQuery @queryResult="updateResults($event)"/>
     <h3>Search results</h3>
-    <!-- <searchGetResults :queryString="queryString"/> -->
     <searchDisplayResults :searchResults="searchResults"/>
   </div>
 </template>
 
 <script>
-// import searchGetResults from "@/components/searchGetResults.vue";
 import searchQuery from "@/components/searchQuery.vue";
 import searchDisplayResults from "@/components/searchDisplayResults.vue"
 
 export default {
   components: { 
-    // searchGetResults,
     searchQuery,
     searchDisplayResults
   },
   name: 'searchMain',
   props: {
-    // msg: String,
-    // queryStr: String,
   },
   data() {
     return {
+      // See if I can have this without needing to pre-specify format.
       searchResults: {
         "data": {
           "head": {

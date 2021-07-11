@@ -5,10 +5,6 @@
     <p>
       <button type="button" v-on:click="runQuery">Query</button>
     </p>
-    <!-- <p>Query result</p>
-    <p>
-      {{ queryResult }}
-    </p> -->
 </div>
 </template>
 
@@ -19,7 +15,6 @@ export default {
   components: {  },
   name: 'searchMain',
   props: {
-    // queryString: String,
   },
   data() {
     return {
@@ -31,9 +26,7 @@ export default {
   },
   methods: {
     runQuery() {
-      // this.$emit('queryRequest',this.queryString)
       this.updateQuery();
-      // this.$emit('queryResult',this.queryResult)
     },
     async updateQuery() {
       const queryPrefix = "/repositories/My_Info_graph?"
@@ -42,12 +35,9 @@ export default {
       var encodedString = qs.stringify({"query": this.queryString})
       var queryURL = queryPrefix + encodedString
 
-      console.log("raw string: ",this.queryString)
-      console.log("encodedString: ",encodedString)
-
       const response = await axios.get(queryURL)
       this.queryResult = response
-      console.log("Response:",this.queryResult.data)
+
       this.$emit('queryResult',this.queryResult)
     },
   }
