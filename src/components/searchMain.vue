@@ -1,9 +1,6 @@
 <template>
   <div class="Search_Output">
-    <h3>Search area</h3>
-    <p>insert search box here</p>
     <searchQuery @queryResult="updateResults($event)"/>
-    <h3>Search results</h3>
     <searchDisplayResults :searchResults="searchResults"/>
   </div>
 </template>

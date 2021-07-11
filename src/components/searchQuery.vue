@@ -1,6 +1,8 @@
 <template>
   <div id="Search_Query">
-    <p>insert search box here</p>
+    <p>
+      SPARQL query:
+    </p>
       <textarea rows=6 cols=40 v-model="queryString" />
     <p>
       <button type="button" v-on:click="runQuery">Query</button>
@@ -12,17 +14,14 @@
 import axios from 'axios'
 
 export default {
-  components: {  },
-  name: 'searchMain',
-  props: {
-  },
+  components: {},
+  name: 'searchQuery',
+  props: {},
   data() {
     return {
       queryString: "",
       queryResult: "",
     }
-  },
-  async mounted() {
   },
   methods: {
     runQuery() {

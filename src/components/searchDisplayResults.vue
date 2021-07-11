@@ -1,6 +1,6 @@
 <template>
   <div class="Search_Output">
-    <h4>Search Display</h4>
+    <h4>Results</h4>
     <table class="table search_results">
       <tr class="triple_variables">
         <td v-for="v in variables" :key="v">
@@ -17,6 +17,8 @@
 </template>
 
 <script>
+// import prefixList from "@/components/prefixHandler.js"
+import json from "@/config/prefixes.json"
 
 export default {
   name: 'searchDisplayResults',
@@ -25,12 +27,11 @@ export default {
   },
   data() {
     return {
-    
+      prefixes: json.prefixes,
     }
   },
   mounted () {
-    console.log("Display mounted")
-    console.log("Display: ", this.searchResults)
+    console.log("PREFIXES: ", this.prefixes)
   },
   computed: {
     variables() {
@@ -40,21 +41,25 @@ export default {
       var triples = []
 
       for (let triple of this.searchResults.data.results.bindings) {
+        for (let i in triple) {
+          triple[i].value = this.addPrefixes(triple[i].value)
+        }
         triples.push(triple)
       }
-      console.log("Display: ",triples)
       return triples
     }
   },
   methods: {
-    processResults(json) {
-      var triples = json.data.results.bindings;
-      this.variables = json.data.head.vars;
-
-      for (let triple of triples) {
-        this.triples.push(triple)
+    addPrefixes(item) {
+      for (let prefix of this.prefixes) {
+        if (item.search(prefix.value > 0)) {
+          item = item.replace(prefix.value,prefix.prefix)
+        }
       }
-    },
+
+
+      return item
+    }
   }
 }
 </script>
