@@ -2,12 +2,12 @@
   <div class="Search_Output">
     <h4>Results</h4>
     <table class="table search_results">
-      <tr class="triple_variables">
+      <tr class="results_heading">
         <td v-for="v in variables" :key="v">
           {{ v }} 
         </td>
       </tr>
-    <tr v-for="triple in triples" :key="triple">
+    <tr class="results_values" v-for="triple in triples" :key="triple">
         <td v-for="v in variables" :key="v">
           {{ triple[v].value }}
         </td>
@@ -42,7 +42,10 @@ export default {
 
       for (let triple of this.searchResults.data.results.bindings) {
         for (let i in triple) {
-          triple[i].value = this.addPrefixes(triple[i].value)
+          // Replace with prefix if it is a URI
+          if (triple[i].type == "uri") {
+            triple[i].value = this.addPrefixes(triple[i].value)
+          }
         }
         triples.push(triple)
       }
@@ -57,7 +60,6 @@ export default {
         }
       }
 
-
       return item
     }
   }
@@ -65,6 +67,4 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-@import url("component.css")
-</style>
+<style scoped src="@/components/search.css" />

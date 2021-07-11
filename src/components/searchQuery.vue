@@ -3,7 +3,7 @@
     <p>
       SPARQL query:
     </p>
-      <textarea rows=6 cols=40 v-model="queryString" />
+      <textarea rows=10 cols=80 v-model="queryString" />
     <p>
       <button type="button" v-on:click="runQuery">Query</button>
     </p>
