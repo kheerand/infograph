@@ -29,7 +29,7 @@
     </div>
     <div class="right">
       <h3>Search and key links</h3>
-      <searchMain :queryString="queryString"/>
+      <searchMain />
     </div>
   </div>
 </template>

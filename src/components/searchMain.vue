@@ -2,50 +2,58 @@
   <div class="Search_Output">
     <h3>Search area</h3>
     <p>insert search box here</p>
+    <searchQuery @queryResult="updateResults($event)"/>
     <h3>Search results</h3>
-    <searchGetResults :queryString="queryString"/>
+    <!-- <searchGetResults :queryString="queryString"/> -->
+    <searchDisplayResults :searchResults="searchResults"/>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
-import searchGetResults from "@/components/searchGetResults.vue";
-
+// import searchGetResults from "@/components/searchGetResults.vue";
+import searchQuery from "@/components/searchQuery.vue";
+import searchDisplayResults from "@/components/searchDisplayResults.vue"
 
 export default {
-  components: { searchGetResults },
+  components: { 
+    // searchGetResults,
+    searchQuery,
+    searchDisplayResults
+  },
   name: 'searchMain',
   props: {
-    msg: String,
-    queryString: String,
+    // msg: String,
+    // queryStr: String,
   },
   data() {
     return {
-      queryResult: "",
-      resultVariables: "",
-      triples: [],
+      searchResults: {
+        "data": {
+          "head": {
+            "vars": ["a","b"]
+          },
+          "results": {
+            "bindings": [
+              {
+                "a": {
+                  "value": "A is here"
+                },
+                "b": {
+                  "value": "B is there"
+                }
+              },
+            ]
+          }
+        }
+      }
     }
   },
   async mounted() {
-    
-    const queryPrefix = "/repositories/My_Info_graph?query="
-    // const queryString = "PREFIX%20skos%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%20SELECT%20%3Fs%20%3Fp%20%3Fo%20%20where%20%7B%20%20%09%3Fs%20%3Fp%20%3Fo%20.%20%20%20%20%20FILTER%20regex(%3Fo%2C%20%22exchange%22%2C%22i%22)%20%7D%20limit%20100%20";
-    const queryString = this.queryString
-    const queryURL = queryPrefix + queryString
-    
-    const response = await axios.get(queryURL)
-    this.info = response
-
-    this.processTriples(this.info)
   },
   methods: {
-    processTriples(json) {
-      var triples = json.data.results.bindings;
-      this.resultVariables = json.data.head.vars;
-
-      for (let triple of triples) {
-        this.triples.push(triple)
-      }
+    updateResults(results) {
+      this.searchResults = results;
+      console.log("searchMain:",this.searchResults)
     }
   }
 }
