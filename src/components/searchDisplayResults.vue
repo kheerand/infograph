@@ -40,6 +40,8 @@ export default {
     triples() {
       var triples = []
 
+      // TODO: Add some error handling to fail gracefully if query fails.
+      
       for (let triple of this.searchResults.data.results.bindings) {
         for (let i in triple) {
           // Replace with prefix if it is a URI

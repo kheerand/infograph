@@ -21,7 +21,7 @@
         <infoTypeProduct @appendText="updateText($event)" />
       </div>
       <div class="bottom">
-        <textarea v-model="turtleText" cols="120" rows="20" />
+        <textarea v-model="turtleText" cols="80" rows="20" />
         <p class="alignLeft">
           <button id="clearButton" type="button" v-on:click="setText('')">Clear text area</button>
         </p>
