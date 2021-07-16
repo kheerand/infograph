@@ -1,0 +1,51 @@
+{
+	"searches": [
+		{
+			"name": "Search for Object",
+			"description": "Free text search in Object",
+			"terms": [
+				{
+					"term": "object",
+					"name": "Search term",
+					"type": "string",
+					"value": ""
+				}
+			],
+			"query": [
+				"prefix : <http://my_info_graph/>",
+				"prefix schema: <https://schema.org/>",
+				"prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>",
+				"prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>",
+				"",
+				"SELECT *  where {",
+				"    ?subject ?predicate ?object .",
+				"    FILTER regex(?object, '??object','i')",
+				"} limit 50 "
+			]
+		},
+		{
+			"name": "search2",
+			"description": "Test search 2",
+			"terms": [
+				{
+					"term": "term1",
+					"name": "name of term 21",
+					"type": "string",
+					"value": ""
+				},
+				{
+					"term": "term2",
+					"name": "name of term 22",
+					"type": "string",
+					"value": ""
+				}
+			],
+			"query": [
+				"PREFIX",
+				"select * where {",
+				" :?term1 ?p \"term2\".",
+				"} limit 50"
+			]
+		}
+	]
+}

@@ -1,12 +1,12 @@
 <template>
   <div id="Search_Query">
-    <p>
+    <!-- <p>
       SPARQL query:
     </p>
-      <textarea rows=10 cols=80 v-model="queryString" />
-    <p>
+      <textarea rows=10 cols=80 v-model="queryString" /> -->
+    <!-- <p>
       <button type="button" v-on:click="runQuery">Query</button>
-    </p>
+    </p> -->
 </div>
 </template>
 
@@ -16,16 +16,24 @@ import axios from 'axios'
 export default {
   components: {},
   name: 'searchQuery',
-  props: {},
+  props: {
+    queryString: String,
+  },
   data() {
     return {
-      queryString: "",
+      // queryString: "",
       queryResult: "",
     }
   },
+  beforeUpdate() {
+    this.runQuery()
+  },
   methods: {
     runQuery() {
+      console.log("Search Query: ",this.queryString)
+
       this.updateQuery();
+
     },
     async updateQuery() {
       const queryPrefix = "/repositories/My_Info_graph?"

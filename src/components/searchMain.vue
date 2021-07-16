@@ -1,18 +1,21 @@
 <template>
   <div class="Search_Output">
-    <searchQuery @queryResult="updateResults($event)"/>
+    <searchCannedSearches @queryString="updateQuery($event)"/>
+    <searchQuery :queryString="query" @queryResult="updateResults($event)"/>
     <searchDisplayResults :searchResults="searchResults"/>
   </div>
 </template>
 
 <script>
+import searchCannedSearches from "@/components/searchCannedSearches.vue";
 import searchQuery from "@/components/searchQuery.vue";
 import searchDisplayResults from "@/components/searchDisplayResults.vue"
 
 export default {
   components: { 
     searchQuery,
-    searchDisplayResults
+    searchDisplayResults,
+    searchCannedSearches
   },
   name: 'searchMain',
   props: {
@@ -38,7 +41,8 @@ export default {
             ]
           }
         }
-      }
+      },
+      query: ""
     }
   },
   async mounted() {
@@ -47,12 +51,14 @@ export default {
     updateResults(results) {
       this.searchResults = results;
       console.log("searchMain:",this.searchResults)
+    },
+    updateQuery(query) {
+      this.query = query;
+      console.log("Search Query: ",this.query)
     }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-@import url("component.css")
-</style>
+<style scoped src="@/components/search.css" />
