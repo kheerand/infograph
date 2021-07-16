@@ -1,9 +1,9 @@
 <template>
-  <div id="Search_Query">
-      <textarea rows=10 cols=80 v-model="queryString" />
     <p>
-      <button type="button" v-on:click="runQuery">Query</button>
+      <button type="button" v-on:click="toggleShowQuery">{{ buttonText }}</button>
     </p>
+  <div v-if="showQuery" id="Search_Query">
+      <textarea rows=10 cols=80 v-model="queryString" />
 </div>
 </template>
 
@@ -20,6 +20,8 @@ export default {
     return {
       queryString: "",
       queryResult: "",
+      showQuery: false,
+      buttonText: "Show Query"
     }
   },
   beforeUpdate() {
@@ -28,6 +30,15 @@ export default {
     this.runQuery()
   },
   methods: {
+    toggleShowQuery() {
+      this.showQuery = !this.showQuery;
+      if (this.showQuery) {
+        this.buttonText = "Hide Query"
+      }
+      else {
+        this.buttonText = "Show Query"
+      }
+    },
     runQuery() {
       console.log("Search Query: ",this.queryString)
 
