@@ -1,12 +1,9 @@
 <template>
   <div id="Search_Query">
-    <!-- <p>
-      SPARQL query:
-    </p>
-      <textarea rows=10 cols=80 v-model="queryString" /> -->
-    <!-- <p>
+      <textarea rows=10 cols=80 v-model="queryString" />
+    <p>
       <button type="button" v-on:click="runQuery">Query</button>
-    </p> -->
+    </p>
 </div>
 </template>
 
@@ -17,15 +14,17 @@ export default {
   components: {},
   name: 'searchQuery',
   props: {
-    queryString: String,
+    query: String,
   },
   data() {
     return {
-      // queryString: "",
+      queryString: "",
       queryResult: "",
     }
   },
   beforeUpdate() {
+    console.log("QUERY STRING:::",this.query)
+    this.queryString = this.query;
     this.runQuery()
   },
   methods: {

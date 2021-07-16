@@ -24,27 +24,70 @@
 			]
 		},
 		{
-			"name": "search2",
-			"description": "Test search 2",
+			"name": "Search in Subject",
+			"description": "Search node in subject",
 			"terms": [
 				{
-					"term": "term1",
-					"name": "name of term 21",
-					"type": "string",
-					"value": ""
-				},
-				{
-					"term": "term2",
-					"name": "name of term 22",
+					"term": "node",
+					"name": "Node",
 					"type": "string",
 					"value": ""
 				}
 			],
 			"query": [
-				"PREFIX",
+				"prefix : <http://my_info_graph/>",
+				"prefix schema: <https://schema.org/>",
+				"prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>",
+				"prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>",
+				"",
+				"SELECT *  where {",
+				"    :??node ?predicate ?object .",
+				"} limit 50 "
+			]
+		},
+		{
+			"name": "Search in Object",
+			"description": "Search node in object",
+			"terms": [
+				{
+					"term": "node",
+					"name": "Node",
+					"type": "string",
+					"value": ""
+				}
+			],
+			"query": [
+				"prefix : <http://my_info_graph/>",
+				"prefix schema: <https://schema.org/>",
+				"prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>",
+				"prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>",
+				"",
+				"SELECT *  where {",
+				"    ?subject ?predicate :??node .",
+				"} limit 50 "
+			]
+		},
+		{
+			"name": "Search Node",
+			"description": "Search node in Subject or Object",
+			"terms": [
+				{
+					"term": "node",
+					"name": "Node",
+					"type": "string",
+					"value": ""
+				}
+			],
+			"query": [
+				"prefix : <http://my_info_graph/>",
+				"prefix schema: <https://schema.org/>",
+				"prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>",
+				"prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>",
+				"",
 				"select * where {",
-				" :?term1 ?p \"term2\".",
-				"} limit 50"
+				"    {:??node ?predicate ?Node .} UNION",
+				"    {?Node ?predicate :??node .}",
+				"} limit 50 "
 			]
 		}
 	]

@@ -61,7 +61,7 @@ export default {
       var search = this.searches[this.choice]
       var queryString = search.query.join("\n")
 
-      // queryString = queryString.replace("term","BLAH")
+      console.log(search)
       for (let term of search.terms) {
         queryString = queryString.replaceAll("??"+term.term,
           term.value);
