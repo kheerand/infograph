@@ -7,7 +7,7 @@
     <hr />
   </div>
   <span>
-    <p><button type="button" v-on:click="updateEvent"> Update text </button></p>
+    <p><button type="button" v-on:click="updateEvent" accesskey="a"> Update text </button></p>
   </span>
 
   <div id="turtle_prefixes">

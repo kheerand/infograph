@@ -23,7 +23,7 @@
       <div class="bottom">
         <textarea v-model="turtleText" cols="120" rows="20" />
         <p class="alignLeft">
-          <button id="clearButton" type="button" v-on:click="setText('')">Clear text area</button>
+          <button id="clearButton" type="button" v-on:click="setText('')" accesskey="c">Clear text area</button>
         </p>
       </div>
     </div>
