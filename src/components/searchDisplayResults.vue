@@ -1,6 +1,7 @@
 <template>
   <div class="Search_Output">
     <h4>Results</h4>
+    <div v-if="validData">
     <table class="table search_results">
       <tr class="results_heading">
         <td v-for="v in variables" :key="v">
@@ -13,6 +14,10 @@
         </td>
     </tr>
     </table>
+    </div>
+    <div v-else>
+      <p classs="warning">No results</p>
+    </div>
   </div>
 </template>
 
@@ -28,14 +33,38 @@ export default {
   data() {
     return {
       prefixes: json.prefixes,
+      validData: false,
     }
   },
   mounted () {
-    console.log("PREFIXES: ", this.prefixes)
+  },
+  beforeUpdate () {
+    console.log("DISPLAy BEFORE: ", this.searchResults)
+    if (this.searchResults.data == "")
+    {
+      console.log("DISPLAY search is blank")
+      this.validData = false;
+    }
+    else if (("data" in this.searchResults) == true) {
+      this.validData = true;
+    }
+    else
+    {
+      this.validData = true;
+    }
   },
   computed: {
     variables() {
-      return this.searchResults.data.head.vars;
+      console.log("DSIPLAY: ",this.searchResults.data)
+      // if (("vars" in this.searchResults.data.head) == true ) {
+      if (this.searchResults.data.head.vars ) {
+        console.log("vars exists")
+        return this.searchResults.data.head.vars;
+      }
+      else {
+        console.log("no vars exists")
+        return ""
+      }
     },
     triples() {
       var triples = []

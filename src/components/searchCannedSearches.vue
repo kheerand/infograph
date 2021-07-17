@@ -27,7 +27,7 @@
                 {{ term.name }}
               </td>
               <td>
-                <input type="text" v-model="term.value" />
+                <input type="text" v-model="term.value" v-on:keyup.enter="runQuery" />
               </td>
             </tr>
             <!-- <tr style="white-space: pre-wrap;text-align: left">
@@ -55,6 +55,8 @@ export default {
       choice: 0,
       searches: json.searches
     }
+  },
+  mounted () {
   },
   computed: {
     computedQuery: function() {

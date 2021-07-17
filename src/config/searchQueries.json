@@ -89,6 +89,43 @@
 				"    {?Node ?predicate :??node .}",
 				"} limit 50 "
 			]
+		},
+		{
+			"name": "Search Node v2",
+			"description": "Search node in Subject or Object",
+			"terms": [
+				{
+					"term": "node",
+					"name": "Node",
+					"type": "string",
+					"value": ""
+				}
+			],
+			"query": [
+				"prefix : <http://my_info_graph/>",
+				"prefix schema: <https://schema.org/>",
+				"prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>",
+				"prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>",
+				"",
+				"CONSTRUCT {",
+					"    :??node ?edge ?newNodeLTR .",
+					"} WHERE {",
+					"    {",
+					"        # Left to right relations (starting IRI is the subject)",
+					"        :??node ?edge ?newNodeLTR .",
+					"",
+					"        # Select only IRIs",
+					"        FILTER(isIRI(?newNodeLTR))",
+					"    } UNION {",
+					"        # Right to left relations (starting IRI is the object)",
+					"        ?newNodeRTL ?edge :??node .",
+					"",
+					"        # Select only IRIs",
+					"        FILTER(isIRI(?newNodeRTL))",
+					"    }",
+					"    FILTER(isIRI(:??node))",
+					"} ORDER BY ?edge LIMIT 50"
+			]
 		}
 	]
 }
