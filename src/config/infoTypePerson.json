@@ -34,6 +34,15 @@
 				"value": ""
 			},
 			{
+				"label": "Phone",
+				"predicate": "schema:telephone",
+				"inputType": "text",
+				"isClass": false,
+				"literal": true,
+				"display": true,
+				"value": ""
+			},
+			{
 				"label": "Email",
 				"predicate": "schema:email",
 				"inputType": "text",
