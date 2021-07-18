@@ -4,7 +4,7 @@
       <infoTypesList @selection="showInfoBox($event)" />
     </div>
     <!-- TODO: Insert code to create this from config -->
-    <div class="right">
+    <div class="middle">
       <div v-if="selectedInfoType == 'personFields'">
         <infoTypePerson @appendText="updateText($event)" />
       </div>
@@ -22,7 +22,13 @@
       </div>
       <div class="bottom">
         <textarea v-model="turtleText" cols="120" rows="20" />
+        <p class="alignLeft">
+          <button id="clearButton" type="button" v-on:click="setText('')">Clear text area</button>
+        </p>
       </div>
+    </div>
+    <div class="right">
+      <h3>Search and key links</h3>
     </div>
   </div>
 </template>
@@ -60,8 +66,8 @@ export default {
     showInfoBox(selectedType) {
       this.selectedInfoType = selectedType;
     },
-    updateTurtleText(turtleOutput) {
-      this.turtleData = turtleOutput;
+    setText(turtleOutput) {
+      this.turtleText = turtleOutput;
       console.log(turtleOutput);
     },
     updateText(value) {
@@ -80,17 +86,29 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+#clearButton {
+  background-color: lightcoral;
+}
 .left {
   float: left;
-  width: 20%;
+  width: 10%;
   background-color: lightcyan;
 }
+.middle {
+  float: left;
+  background-color: lightgoldenrodyellow;
+  width: 45%;
+}
 .right {
-  float: right;
-  width: 80%;
+  float: left;
+  background-color: thistle;
+  width: 45%;
 }
 .bottom {
   clear: both;
   float: left;
+}
+.alignLeft {
+  text-align: left;
 }
 </style>

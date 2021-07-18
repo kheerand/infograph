@@ -2,6 +2,16 @@
   <div id="input_area">
     <h3>{{ title }}</h3>
     <table>
+      <tr>
+        <td />
+        <td>
+          <div style="text-align: left">
+            <p>
+              <button type="button" v-on:click="clearValues">Clear text</button>
+            </p>
+          </div>
+        </td>
+      </tr>
       <tr class="input_row">
         <td class="input_heading">
           {{ fields.predicate.label }}
@@ -67,38 +77,20 @@ export default {
     },
     appendText(value) {
       this.$emit('appendText',value)
-    }
+    },
+    clearValues() {
+      this.fields.predicate.value = "";
+      for (let item in this.fields.subjects) {
+        if (this.fields.subjects[item].value.substring(0,2) != "++") {
+            this.fields.subjects[item].value = "";
+        }
+      }
+    },
   },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-#turtle_text {
-  text-align: left;
-  background: aliceblue;
-}
-#turtle_preamble {
-  background: beige;
-}
-.input_heading {
-  text-align: right;
-}
-.input_input {
-  text-align: left;
-}
+@import url("component.css")
 </style>

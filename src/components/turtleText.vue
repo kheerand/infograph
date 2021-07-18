@@ -2,10 +2,13 @@
   <div id="turtle_preamble">
     <h4>Turtle snippet</h4>
     <p>
-      <em>Copy and paste the turtle snippet below to GraphDB</em>
+      <em>Paste the turtle snippet below to GraphDB</em>
     </p>
     <hr />
   </div>
+  <span>
+    <p><button type="button" v-on:click="updateEvent"> Update text </button></p>
+  </span>
 
   <div id="turtle_prefixes">
     <p>
@@ -32,9 +35,6 @@
           {{ subject.classType }}. <br />
         </span>
       </span>
-    </span>
-    <span>
-    <p><button type="button" v-on:click="updateEvent"> Update text </button></p>
     </span>
   </span>
 </template>
@@ -111,31 +111,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-#turtle_snippet {
-  text-align: left;
-  background: aliceblue;
-}
-#turtle_preamble {
-  background: beige;
-}
-.input_heading {
-  text-align: right;
-}
-.input_input {
-  text-align: left;
-}
+@import url("component.css")
 </style>
