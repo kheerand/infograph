@@ -4,8 +4,8 @@
     <table id="cannedSearches">
       <tr>
         <td id="searchOptions">
-          <select v-model="choice">
-            <option disabled value="">Select search</option>
+          <select v-model="choice" accesskey="s">
+            <!-- <option disabled value="">Select search</option> -->
             <option v-for="(search, index) in searches" 
               :key="search" 
               :index="index" 
