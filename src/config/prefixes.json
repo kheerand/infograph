@@ -1,4 +1,5 @@
 {
+	"resourcePrefix":"/resource?",
 	"prefixes": [
 		{
 			"prefix": ":",
