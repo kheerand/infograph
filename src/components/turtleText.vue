@@ -7,7 +7,7 @@
     <hr />
   </div>
   <span>
-    <p><button type="button" v-on:click="updateEvent"> Update text </button></p>
+    <p><button type="button" v-on:click="updateEvent" accesskey="a"> Update text </button></p>
   </span>
 
   <div id="turtle_prefixes">
@@ -20,7 +20,7 @@
     <span v-for="subject in fields.subjects" :key="subject">
       <span v-if="subject.value != ''">
         <span> :{{ fields.predicate.value }} {{ subject.predicate }} </span>
-        <span v-if="subject.literal == true">
+        <span style="white-space: pre-wrap;" v-if="subject.literal == true" >
           "{{ subject.value }}".<br />
         </span>
         <span v-else>
@@ -79,7 +79,12 @@ export default {
                         " " + subject.predicate;
           
           if (subject.literal == true) {
-            textString += " \"" + subject.value + "\".\n";
+            if (subject.value.includes("\n")) {
+              textString += " \"\"\"" + subject.value + "\"\"\".\n";
+            }
+            else {
+              textString += " \"" + subject.value + "\".\n";
+            }
           }
           else {
             textString += " :" + this.adjustedValue(fields.predicate.value, 
