@@ -3,7 +3,6 @@
     <h3>{{ title }}</h3>
     <table>
       <tr>
-        <td />
         <td>
           <div style="text-align: left">
             <p>
@@ -11,6 +10,7 @@
             </p>
           </div>
         </td>
+        <td />
       </tr>
       <tr class="input_row">
         <td class="input_heading">
