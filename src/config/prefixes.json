@@ -1,5 +1,5 @@
 {
-	"resourcePrefix":"/resource?",
+	"resourcePrefix":"http://192.168.1.155:7200/resource?",
 	"prefixes": [
 		{
 			"prefix": ":",
