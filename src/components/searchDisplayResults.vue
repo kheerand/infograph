@@ -10,10 +10,18 @@
       </tr>
     <tr class="results_values" v-for="triple in triples" :key="triple">
         <td v-for="v in variables" :key="v">
-          {{ triple[v].value }}
+          <div v-if="triple[v].type == 'uri'">
+            <a :href= "triple[v].value" target="_blank">
+              {{ triple[v].prefixedValue }}
+            </a>
+          </div>
+          <div v-else>
+            {{ triple[v].value }}
+          </div>
         </td>
     </tr>
     </table>
+      <iframe name="graphdb_view" width="600" height="300" />
     </div>
     <div v-else>
       <p classs="warning">No results</p>
@@ -33,6 +41,7 @@ export default {
   data() {
     return {
       prefixes: json.prefixes,
+      resourcePrefix: json.resourcePrefix,
       validData: false,
     }
   },
@@ -75,7 +84,15 @@ export default {
         for (let i in triple) {
           // Replace with prefix if it is a URI
           if (triple[i].type == "uri") {
-            triple[i].value = this.addPrefixes(triple[i].value)
+            triple[i].prefixedValue = this.addPrefixes(triple[i].value)
+
+            // TODO: Replace this to be configurable
+            if (triple[i].prefixedValue[0] == ":") {
+              const qs = require('querystring');
+
+              var encoded = qs.stringify({"uri": triple[i].value})
+              triple[i].value = this.resourcePrefix + encoded
+            }
           }
         }
         triples.push(triple)
