@@ -1,0 +1,103 @@
+{
+	"title": "Committee",
+	"labelPredicate": "schema:name",
+	"prefixes": [
+		"@prefix : <http://my_info_graph/>.",
+		"@prefix schema: <https://schema.org/>.",
+		"@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.",
+		"@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>."
+	],
+	"fields": {
+		"predicate": {
+			"label": "Name ID",
+			"class": ":Committee",
+			"literal": false,
+			"value": ""
+		},
+		"subjects": [
+			{
+				"label": "Name",
+				"predicate": "schema:name",
+				"isClass": false,
+				"inputType": "text",
+				"literal": true,
+				"display": true,
+				"value": ""
+			},
+			{
+				"label": "Description",
+				"predicate": "schema:description",
+				"isClass": false,
+				"inputType": "textarea",
+				"literal": true,
+				"display": true,
+				"value": ""
+			},
+			{
+				"label": "Funder ID",
+				"predicate": "schema:funder",
+				"isClass": false,
+				"inputType": "text",
+				"literal": false,
+				"display": true,
+				"value": ""
+			},
+			{
+				"label": "Parent Organisation ID",
+				"predicate": "schema:parentOrganization",
+				"isClass": false,
+				"inputType": "text",
+				"literal": false,
+				"display": true,
+				"value": ""
+			},
+			{
+				"label": "URL",
+				"predicate": "schema:url",
+				"isClass": false,
+				"inputType": "text",
+				"literal": true,
+				"display": true,
+				"value": ""
+			},
+			{
+				"label": "People",
+				"predicate": "schema:member",
+				"isClass": true,
+				"classType": "rdf:Bag",
+				"inputType": "text",
+				"literal": false,
+				"value": "++People",
+				"display": false
+			},
+			{
+				"label": "Notes",
+				"predicate": "skos:note",
+				"isClass": true,
+				"classType": "rdf:Bag",
+				"inputType": "text",
+				"literal": false,
+				"value": "++Notes",
+				"display": false
+			},
+			{
+				"label": "Owns",
+				"predicate": "schema:owns",
+				"isClass": false,
+				"inputType": "text",
+				"literal": false,
+				"display": true,
+				"value": ""
+			},
+			{
+				"label": "Related",
+				"predicate": "skos:related",
+				"inputType": "text",
+				"value": "",
+				"literal": false,
+				"display": true,
+				"repeatable": true
+			}
+		]
+	}
+}
