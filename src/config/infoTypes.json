@@ -21,6 +21,10 @@
 			"app": "organisationFields"
 		},
 		{
+			"name": "Committee",
+			"app": "committeeFields"
+		},
+		{
 			"name": "relationship",
 			"app": "relationshipFields"
 		}
