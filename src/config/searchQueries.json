@@ -1,7 +1,7 @@
 {
 	"searches": [
 		{
-			"name": "Search for Object",
+			"name": "Free search",
 			"description": "Free text search in Object",
 			"terms": [
 				{
@@ -18,8 +18,8 @@
 				"prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>",
 				"",
 				"SELECT *  where {",
-				"    ?subject ?predicate ?object .",
-				"    FILTER regex(?object, '??object','i')",
+				"    ?Subject ?Predicate ?Object .",
+				"    FILTER regex(?Object, '??object','i')",
 				"} limit 50 "
 			]
 		},
@@ -41,7 +41,10 @@
 				"prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>",
 				"",
 				"SELECT *  where {",
-				"    :??node ?predicate ?object .",
+				"    VALUES ?Subject {",
+				"         :??node",
+				"    }",
+				"    ?Subject ?Predicate ?Object .",
 				"} limit 50 "
 			]
 		},
@@ -63,7 +66,10 @@
 				"prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>",
 				"",
 				"SELECT *  where {",
-				"    ?subject ?predicate :??node .",
+				"    VALUES ?Subject {",
+				"         :??node",
+				"    }",
+				"    ?Subject ?Predicate ?Object .",
 				"} limit 50 "
 			]
 		},
@@ -85,8 +91,11 @@
 				"prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>",
 				"",
 				"select * where {",
-				"    {:??node ?predicate ?Node .} UNION",
-				"    {?Node ?predicate :??node .}",
+				"    VALUES ?Subject {",
+				"         :??node",
+				"    }",
+				"    {?Subject ?Predicate ?Node .} UNION",
+				"    {?Node ?Predicate ?Subject .}",
 				"} limit 50 "
 			]
 		},
