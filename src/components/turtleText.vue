@@ -2,10 +2,13 @@
   <div id="turtle_preamble">
     <h4>Turtle snippet</h4>
     <p>
-      <em>Copy and paste the turtle snippet below to GraphDB</em>
+      <em>Paste the turtle snippet below to GraphDB</em>
     </p>
     <hr />
   </div>
+  <span>
+    <p><button type="button" v-on:click="updateEvent" accesskey="a"> Update text </button></p>
+  </span>
 
   <div id="turtle_prefixes">
     <p>
@@ -17,7 +20,7 @@
     <span v-for="subject in fields.subjects" :key="subject">
       <span v-if="subject.value != ''">
         <span> :{{ fields.predicate.value }} {{ subject.predicate }} </span>
-        <span v-if="subject.literal == true">
+        <span style="white-space: pre-wrap;" v-if="subject.literal == true" >
           "{{ subject.value }}".<br />
         </span>
         <span v-else>
@@ -30,11 +33,9 @@
         <span v-if="subject.isClass == true">
           :{{ adjustedValue(fields.predicate.value, subject.value) }} a
           {{ subject.classType }}. <br />
+          :{{ adjustedValue(fields.predicate.value, subject.value) }} rdfs:label {{ subject.label }}. <br/>
         </span>
       </span>
-    </span>
-    <span>
-    <p><button type="button" v-on:click="updateEvent"> Update text </button></p>
     </span>
   </span>
 </template>
@@ -79,7 +80,12 @@ export default {
                         " " + subject.predicate;
           
           if (subject.literal == true) {
-            textString += " \"" + subject.value + "\".\n";
+            if (subject.value.includes("\n")) {
+              textString += " \"\"\"" + subject.value + "\"\"\".\n";
+            }
+            else {
+              textString += " \"" + subject.value + "\".\n";
+            }
           }
           else {
             textString += " :" + this.adjustedValue(fields.predicate.value, 
@@ -95,6 +101,9 @@ export default {
             textString += ":" + this.adjustedValue(fields.predicate.value, 
                                               subject.value) +
                             " a " + subject.classType + ".\n";
+            textString += ":" + this.adjustedValue(fields.predicate.value, 
+                                              subject.value) + 
+                            " rdfs:label \"" + subject.label + "\".\n";
           }
         }
                       

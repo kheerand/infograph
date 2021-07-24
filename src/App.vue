@@ -4,7 +4,7 @@
       <infoTypesList @selection="showInfoBox($event)" />
     </div>
     <!-- TODO: Insert code to create this from config -->
-    <div class="right">
+    <div class="middle">
       <div v-if="selectedInfoType == 'personFields'">
         <infoTypePerson @appendText="updateText($event)" />
       </div>
@@ -14,6 +14,9 @@
       <div v-if="selectedInfoType == 'organisationFields'">
         <infoTypeOrganzation @appendText="updateText($event)" />
       </div>
+      <div v-if="selectedInfoType == 'committeeFields'">
+        <infoTypeCommittee @appendText="updateText($event)" />
+      </div>
       <div v-if="selectedInfoType == 'infoFields'">
         <infoTypeInfoSnippet @appendText="updateText($event)" />
       </div>
@@ -21,11 +24,15 @@
         <infoTypeProduct @appendText="updateText($event)" />
       </div>
       <div class="bottom">
-        <textarea v-model="turtleText" cols="120" rows="20" />
+        <textarea v-model="turtleText" cols="80" rows="20" />
         <p class="alignLeft">
-          <button id="clearButton" type="button" v-on:click="setText('')">Clear text area</button>
+          <button id="clearButton" type="button" v-on:click="setText('')" accesskey="c">Clear text area</button>
         </p>
       </div>
+    </div>
+    <div class="right">
+      <h3>Search and key links</h3>
+      <searchMain />
     </div>
   </div>
 </template>
@@ -35,8 +42,10 @@ import infoTypePerson from "./components/infoTypePerson.vue";
 import infoTypeProject from "./components/infoTypeProject.vue";
 import infoTypeProduct from "./components/infoTypeProduct.vue";
 import infoTypeOrganzation from "./components/infoTypeOrganization.vue";
+import infoTypeCommittee from "./components/infoTypeCommittee.vue";
 import infoTypeInfoSnippet from "./components/infoTypeInfoSnippet.vue";
 import infoTypesList from "./components/infoTypesList.vue";
+import searchMain from "./components/searchMain.vue";
 
 export default {
   name: "App",
@@ -44,9 +53,11 @@ export default {
     infoTypeProject,
     infoTypePerson,
     infoTypeOrganzation,
+    infoTypeCommittee,
     infoTypeInfoSnippet,
     infoTypesList,
     infoTypeProduct,
+    searchMain,
   },
   data() {
     return {
@@ -57,6 +68,8 @@ export default {
         prefixes: "",
         tripples: "",
       },
+      queryString: "PREFIX%20skos%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%20SELECT%20%3Fs%20%3Fp%20%3Fo%20%20where%20%7B%20%20%09%3Fs%20%3Fp%20%3Fo%20.%20%20%20%20%20FILTER%20regex(%3Fo%2C%20%22bdr%22%2C%22i%22)%20%7D%20limit%20100%20",
+
     };
   },
   methods: {
@@ -88,12 +101,18 @@ export default {
 }
 .left {
   float: left;
-  width: 20%;
+  width: 10%;
   background-color: lightcyan;
 }
+.middle {
+  float: left;
+  background-color: lightgoldenrodyellow;
+  width: 45%;
+}
 .right {
-  float: right;
-  width: 80%;
+  float: left;
+  background-color: thistle;
+  width: 45%;
 }
 .bottom {
   clear: both;

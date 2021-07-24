@@ -46,16 +46,17 @@
   </div>
 </template>
 
+
 <script>
-import json from "@/config/infoTypeInfoSnippet.json"; // Change it so that this can be specified during app call.
+import json from "@/config/infoTypeCommittee.json"; // Change it so that this can be specified during app call.
 import turtleText from "@/components/turtleText.vue";
 
 export default {
   name: "turtleItem",
+  props: {},
   components: {
     turtleText,
   },
-  props: {},
   data() {
     return {
       title: json.title,
@@ -76,13 +77,13 @@ export default {
       return computedVal;
     },
     appendText(value) {
-      this.$emit('appendText',value)
+      this.$emit("appendText", value);
     },
     clearValues() {
       this.fields.predicate.value = "";
       for (let item in this.fields.subjects) {
-        if (this.fields.subjects[item].value.substring(0,2) != "++") {
-            this.fields.subjects[item].value = "";
+        if (this.fields.subjects[item].value.substring(0, 2) != "++") {
+          this.fields.subjects[item].value = "";
         }
       }
     },

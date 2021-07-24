@@ -3,7 +3,6 @@
     <h3>{{ title }}</h3>
     <table>
       <tr>
-        <td />
         <td>
           <div style="text-align: left">
             <p>
@@ -11,13 +10,14 @@
             </p>
           </div>
         </td>
+        <td />
       </tr>
       <tr class="input_row">
         <td class="input_heading">
           {{ fields.predicate.label }}
         </td>
         <td class="input_input">
-          <input type="text" v-model="fields.predicate.value" />
+          <input type="text" v-model="fields.predicate.value" accesskey="w" />
         </td>
       </tr>
       <tr class="input_row" v-for="subject in fields.subjects" :key="subject">

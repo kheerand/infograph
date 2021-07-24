@@ -1,0 +1,49 @@
+{
+	"resourcePrefix":"http://192.168.1.155:7200/resource?",
+	"prefixes": [
+		{
+			"prefix": ":",
+			"value": "http://my_info_graph/"
+		},
+		{
+			"prefix": "project:",
+			"value": "https://schema.org/Project"
+		},
+		{
+			"prefix": "foaf:",
+			"value": "http://xmlns.com/foaf/0.1/"
+		},
+		{
+			"prefix": "person:",
+			"value": "https://schema.org/Person#"
+		},
+		{
+			"prefix": "rdf:",
+			"value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+		},
+		{
+			"prefix": "rdfs:",
+			"value": "http://www.w3.org/2000/01/rdf-schema#"
+		},
+		{
+			"prefix": "news:",
+			"value": "https://schema.org/NewsArticle"
+		},
+		{
+			"prefix": "skos:",
+			"value": "http://www.w3.org/2004/02/skos/core#"
+		},
+		{
+			"prefix": "org:",
+			"value": "https://schema.org/Organization"
+		},
+		{
+			"prefix": "schema:",
+			"value": "https://schema.org/"
+		},
+		{
+			"prefix": "owl:",
+			"value": "http://www.w3.org/2002/07/owl#"
+		}
+	]
+}

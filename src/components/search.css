@@ -1,0 +1,28 @@
+
+@import url("component.css");
+
+/* =============== 
+   HTML tag styles
+   --------------- */
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+/* ==========
+   ID styling
+   ---------- */
+
+
+/* =============
+   Class styling
+   ------------- */
+ .search_results {
+      text-align: left;
+      background-color:#d2d2d2;
+}
+.results_heading {
+      text-align: center;
+      font-size: 14pt;
+      background-color: #02a36b;
+}
+.results_values {
+      white-space: pre-wrap;
+}
