@@ -28,7 +28,7 @@
         </div>
         <div class="row">
           <div class="col-sm-6 bottom">
-              <textarea v-model="turtleText" class="form-control_disabled" cols="70" rows="10" />
+              <textarea v-model="turtleText" id="output_text" class="form-control_disabled" cols="70" rows="10" />
             <p class="alignLeft">
               <button
                 id="clearButton"
@@ -95,6 +95,9 @@ export default {
     },
     updateText(value) {
       this.turtleText += value + "\n";
+
+      var textarea = document.getElementById('output_text');
+      textarea.scrollTop = textarea.scrollHeight;
     },
   },
 };
