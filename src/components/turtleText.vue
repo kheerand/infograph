@@ -33,6 +33,7 @@
         <span v-if="subject.isClass == true">
           :{{ adjustedValue(fields.predicate.value, subject.value) }} a
           {{ subject.classType }}. <br />
+          :{{ adjustedValue(fields.predicate.value, subject.value) }} rdfs:label {{ subject.label }}. <br/>
         </span>
       </span>
     </span>
@@ -100,6 +101,9 @@ export default {
             textString += ":" + this.adjustedValue(fields.predicate.value, 
                                               subject.value) +
                             " a " + subject.classType + ".\n";
+            textString += ":" + this.adjustedValue(fields.predicate.value, 
+                                              subject.value) + 
+                            " rdfs:label \"" + subject.label + "\".\n";
           }
         }
                       
