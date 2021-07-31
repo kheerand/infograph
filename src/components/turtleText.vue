@@ -1,6 +1,6 @@
 <template>
   <span>
-      <span v-on:click="toggleShowQuery"><strong>{{ showIcon }}</strong></span>
+      <span v-on:click="toggleText"><strong>{{ showIcon }}</strong></span>
       <button class="button_slim" type="button" v-on:click="updateEvent" accesskey="a"> Update text </button>
   </span>
 
@@ -61,14 +61,8 @@ export default {
   },
   mounted: function () {},
   methods: {
-    toggleShowQuery() {
+    toggleText() {
       this.showTurtleText = !this.showTurtleText;
-      if (this.showTurtleText) {
-        this.buttonText = "Hide Query"
-      }
-      else {
-        this.buttonText = "Show Query"
-      }
     },
     adjustedValue(predicate, val) {
       var computedVal = String;
