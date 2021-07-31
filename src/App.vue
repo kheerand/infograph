@@ -1,11 +1,11 @@
 <template>
   <div class="containter">
     <div class="row">
-      <div class="col-sm-2 left">
+      <div class="col-lg-2 left">
         <infoTypesList @selection="showInfoBox($event)" />
       </div>
       <!-- TODO: Insert code to create this from config -->
-      <div class="col-sm-6 middle">
+      <div class="col-lg-6 middle">
         <div class="row">
           <div v-if="selectedInfoType == 'personFields'">
             <infoTypePerson @appendText="updateText($event)" />
@@ -27,7 +27,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-6 bottom">
+          <div class="col-lg-6 bottom">
               <textarea v-model="turtleText" id="output_text" class="form-control_disabled" cols="70" rows="10" />
             <p class="alignLeft">
               <button
@@ -42,7 +42,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-4 right">
+      <div class="col-lg-4 right">
         <h3>Search and key links</h3>
         <searchMain />
       </div>
