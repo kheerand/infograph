@@ -66,3 +66,8 @@ a:hover {
 .left_align {
       text-align: left;
 }
+.sub_title {
+      font-size: 14pt;
+      font-weight: bold;
+      color: royalblue;
+}
