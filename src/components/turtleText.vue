@@ -1,6 +1,6 @@
 <template>
   <span>
-      <span v-on:click="toggleText"><strong>{{ showIcon }}</strong></span>
+      <span style="cursor:pointer" v-on:click="toggleText"><strong>{{ showIcon }}</strong></span>
       <button class="button_slim" type="button" v-on:click="updateEvent" accesskey="a"> Update text </button>
   </span>
 

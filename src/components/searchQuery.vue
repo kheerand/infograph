@@ -1,9 +1,9 @@
 <template>
   <div class="small_text left_align" id="show_Query">
-    <span v-on:click="toggleShowQuery">
+    <span style="cursor:pointer;" v-on:click="toggleShowQuery">
       <strong>{{ showIcon }}</strong>
+      {{ statusText }}
     </span>
-    {{ statusText }}
   </div>
   <div v-if="showQuery" id="Search_Query">
     <!-- <textarea rows="10" cols="80" v-model="queryString" /> -->
