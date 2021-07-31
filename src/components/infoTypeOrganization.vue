@@ -17,7 +17,7 @@
           {{ fields.predicate.label }}
         </td>
         <td class="input_input">
-          <input type="text" v-model="fields.predicate.value" accesskey="w" />
+          <input type="text" v-model.trim="fields.predicate.value" accesskey="w" />
         </td>
       </tr>
       <tr class="input_row" v-for="subject in fields.subjects" :key="subject">
@@ -29,7 +29,7 @@
             <textarea rows="4" cols="50" v-model="subject.value" />
           </span>
           <span v-else>
-            <input :type="subject.inputType" v-model="subject.value" />
+            <input :type="subject.inputType" v-model.trim="subject.value" />
           </span>
         </td>
       </tr>
