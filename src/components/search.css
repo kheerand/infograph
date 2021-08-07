@@ -24,12 +24,5 @@ tr:nth-child(even) {background-color: #f2f2f2;}
       background-color: #02a36b;
 }
 .results_values {
-      white-space:pre-wrap;
-
-}
-.truncated_text {
-      height: 80px;
-      overflow: auto;
-      text-overflow: ellipsis;
-      resize: vertical;
+      white-space: pre-wrap;
 }
