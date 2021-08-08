@@ -9,7 +9,7 @@
 <script>
 import searchCannedSearches from "@/components/searchCannedSearches.vue";
 import searchQuery from "@/components/searchQuery.vue";
-import searchDisplayResults from "@/components/searchDisplayResults.vue"
+import searchDisplayResults from "@/components/searchDisplayResults2.vue"
 
 export default {
   components: { 

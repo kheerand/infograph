@@ -15,7 +15,7 @@
               {{ triple[v].prefixedValue }}
             </a>
           </div>
-          <div class="truncated_text" v-else>
+          <div v-else>
             {{ triple[v].value }}
           </div>
         </td>

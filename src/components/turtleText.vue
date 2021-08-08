@@ -69,19 +69,8 @@ export default {
 
       if (val.substring(0, 2) == "++") {
         computedVal = predicate + "_" + val.substring(2);
-      } 
-      else {
-        if (val.startsWith('[') && val.endsWith(']')) {
-          // Its a list of items
-          let value = val.slice(1,val.length-1);
-          // strip any spaces after the , in the string
-          value = value.replace(/ +/g,"");
-          value = value.replace(/,/g,", :");
-          computedVal = value;
-        }
-        else {
-          computedVal = val;
-        }
+      } else {
+        computedVal = val;
       }
       return computedVal;
     },
@@ -113,18 +102,8 @@ export default {
             }
           }
           else {
-            if (subject.value.startsWith('[') && subject.value.endsWith(']')) {
-              // Its a list of items
-              let value = subject.value.slice(1,subject.value.length-1);
-              // strip any spaces after the , in the string
-              value = value.replace(/ +/g,"");
-              value = " :" + value.replace(/,/g,", :") + ".\n";
-              textString += value;
-
-            } else {
-              textString += " :" + this.adjustedValue(fields.predicate.value, 
+            textString += " :" + this.adjustedValue(fields.predicate.value, 
                                                 subject.value) + ".\n";
-            }
           }
 
           if (subject.predicate == this.labelPredicate) {
