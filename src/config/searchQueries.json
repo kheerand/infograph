@@ -1,7 +1,7 @@
 {
 	"searches": [
 		{
-			"name": "Free search",
+			"name": "Search",
 			"description": "Free text search in Object",
 			"terms": [
 				{
@@ -17,9 +17,36 @@
 				"prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>",
 				"prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>",
 				"",
-				"SELECT *  where {",
+				"CONSTRUCT { ?Subject ?Predicate ?Object. }",
+				"where {",
 				"    ?Subject ?Predicate ?Object .",
 				"    FILTER regex(?Object, '??object','i')",
+				"} limit 50 "
+			]
+		},
+		{
+			"name": "Search all",
+			"description": "Free text search in Object and Subject",
+			"terms": [
+				{
+					"term": "object",
+					"name": "Search term",
+					"type": "string",
+					"value": ""
+				}
+			],
+			"query": [
+				"prefix : <http://my_info_graph/>",
+				"prefix schema: <https://schema.org/>",
+				"prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>",
+				"prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>",
+				"",
+				"CONSTRUCT { ?Subject ?Predicate ?Object. }",
+				"where {",
+				"    ?Subject ?Predicate ?Object .",
+				"    {FILTER regex(?Object, '??object','i')}",
+				"     UNION",
+				"    {FILTER regex(?Subject, '??object','i')}",
 				"} limit 50 "
 			]
 		},
@@ -40,7 +67,8 @@
 				"prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>",
 				"prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>",
 				"",
-				"SELECT *  where {",
+				"CONSTRUCT { ?Subject ?Predicate ?Node. }",
+				"where {",
 				"    VALUES ?Subject {",
 				"         :??node",
 				"    }",
@@ -65,7 +93,8 @@
 				"prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>",
 				"prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>",
 				"",
-				"SELECT *  where {",
+				"CONSTRUCT { ?Subject ?Predicate ?Node. }",
+				"where {",
 				"    VALUES ?Subject {",
 				"         :??node",
 				"    }",
@@ -74,33 +103,7 @@
 			]
 		},
 		{
-			"name": "Search Node",
-			"description": "Search node in Subject or Object",
-			"terms": [
-				{
-					"term": "node",
-					"name": "Node",
-					"type": "string",
-					"value": ""
-				}
-			],
-			"query": [
-				"prefix : <http://my_info_graph/>",
-				"prefix schema: <https://schema.org/>",
-				"prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>",
-				"prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>",
-				"",
-				"select * where {",
-				"    VALUES ?Subject {",
-				"         :??node",
-				"    }",
-				"    {?Subject ?Predicate ?Node .} UNION",
-				"    {?Node ?Predicate ?Subject .}",
-				"} limit 50 "
-			]
-		},
-		{
-			"name": "Search Node v2",
+			"name": "Search both",
 			"description": "Search node in Subject or Object",
 			"terms": [
 				{
@@ -118,6 +121,7 @@
 				"",
 				"CONSTRUCT {",
 					"    :??node ?edge ?newNodeLTR .",
+					"    ?newNodeRTL ?edge :??node .",
 					"} WHERE {",
 					"    {",
 					"        # Left to right relations (starting IRI is the subject)",
