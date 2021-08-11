@@ -57,7 +57,7 @@
 				"predicate": "skos:related",
 				"inputType": "text",
 				"isClass": false,
-				"literal": true,
+				"literal": false,
 				"display": true,
 				"value": ""
 			},
