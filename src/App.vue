@@ -25,6 +25,9 @@
           <div v-if="selectedInfoType == 'productFields'">
             <infoTypeProduct @appendText="updateText($event)" />
           </div>
+          <div v-if="selectedInfoType == 'conceptFields'">
+            <infoTypeConcept @appendText="updateText($event)" />
+          </div>
         </div>
         <div class="row">
           <div class="col-lg-6 bottom">
@@ -57,6 +60,7 @@ import infoTypeProduct from "./components/infoTypeProduct.vue";
 import infoTypeOrganzation from "./components/infoTypeOrganization.vue";
 import infoTypeCommittee from "./components/infoTypeCommittee.vue";
 import infoTypeInfoSnippet from "./components/infoTypeInfoSnippet.vue";
+import infoTypeConcept from "./components/infoTypeConcept.vue";
 import infoTypesList from "./components/infoTypesList.vue";
 import searchMain from "./components/searchMain.vue";
 
@@ -70,6 +74,7 @@ export default {
     infoTypeInfoSnippet,
     infoTypesList,
     infoTypeProduct,
+    infoTypeConcept,
     searchMain,
   },
   data() {

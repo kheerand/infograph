@@ -25,7 +25,11 @@
 			"app": "committeeFields"
 		},
 		{
-			"name": "relationship",
+			"name": "Concept",
+			"app": "conceptFields"
+		},
+		{
+			"name": "Relationship",
 			"app": "relationshipFields"
 		}
 	]
