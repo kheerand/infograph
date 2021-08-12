@@ -1,0 +1,85 @@
+{
+	"title": "Concept",
+	"labelPredicate": "schema:name",
+	"prefixes": [
+		"@prefix : <http://my_info_graph/>.",
+		"@prefix schema: <https://schema.org/>.",
+		"@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.",
+		"@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.",
+		"@prefix skos: <http://www.w3.org/2004/02/skos/core#>."
+	],
+	"fields": {
+		"predicate": {
+			"label": "Concept ID",
+			"class": "skos:Concept",
+			"literal": false,
+			"value": ""
+		},
+		"subjects": [
+			{
+				"label": "Concept name",
+				"predicate": "schema:name",
+				"inputType": "text",
+				"isClass": false,
+				"literal": true,
+				"display": true,
+				"value": ""
+			},
+			{
+				"label": "Description",
+				"predicate": "schema:description",
+				"inputType": "textarea",
+				"isClass": false,
+				"literal": true,
+				"display": true,
+				"value": ""
+			},
+			{
+				"label": "Narrower concept of",
+				"predicate": "skos:narrower",
+				"inputType": "text",
+				"isClass": false,
+				"literal": true,
+				"display": true,
+				"value": ""
+			},
+			{
+				"label": "Broader concept is",
+				"predicate": "schema:email",
+				"inputType": "text",
+				"isClass": false,
+				"literal": true,
+				"display": true,
+				"value": ""
+			},
+			{
+				"label": "URL",
+				"predicate": "schema:url",
+				"inputType": "text",
+				"isClass": false,
+				"literal": true,
+				"display": true,
+				"value": ""
+			},
+			{
+				"label": "Related to",
+				"predicate": "skos:related",
+				"inputType": "text",
+				"isClass": false,
+				"literal": false,
+				"display": true,
+				"value": ""
+			},
+			{
+				"label": "Notes",
+				"predicate": "skos:note",
+				"inputType": "text",
+				"isClass": true,
+				"classType": "rdf:Bag",
+				"literal": false,
+				"value": "++Notes",
+				"display": false
+			}
+		]
+	}
+}
