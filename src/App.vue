@@ -49,7 +49,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4 right">
+      <div class="col-lg-5 right">
         <h3>Search and key links</h3>
         <searchMain />
       </div>
