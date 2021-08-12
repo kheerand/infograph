@@ -2,31 +2,38 @@
 	"infoTypes": [
 		{
 			"name": "person",
-			"app": "personFields"
+			"app": "personFields",
+			"keyboardKey": "1"
 		},
 		{
 			"name": "project",
-			"app": "projectFields"
+			"app": "projectFields",
+			"keyboardKey": "2"
 		},
 		{
 			"name": "Product",
-			"app": "productFields"
+			"app": "productFields",
+			"keyboardKey": "3"
 		},
 		{
 			"name": "info snippet",
-			"app": "infoFields"
+			"app": "infoFields",
+			"keyboardKey": "4"
 		},
 		{
 			"name": "organisation",
-			"app": "organisationFields"
+			"app": "organisationFields",
+			"keyboardKey": "5"
 		},
 		{
 			"name": "Committee",
-			"app": "committeeFields"
+			"app": "committeeFields",
+			"keyboardKey": "6"
 		},
 		{
 			"name": "Concept",
-			"app": "conceptFields"
+			"app": "conceptFields",
+			"keyboardKey": "7"
 		},
 		{
 			"name": "Relationship",
