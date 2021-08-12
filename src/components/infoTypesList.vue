@@ -1,7 +1,8 @@
 <template>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-  <div class="col-lg-12">
+  <div class="col-lg-1" />
+  <div class="col-lg-11">
    <ul class="nav nav-pills" id="infoTypeSelection">
           <li v-for="item in infoTypes" :key="item.name">
             <a data-toggle="pill" href="#" @click="onChange($event)" :id="item.app" :accesskey="item.keyboardKey">
