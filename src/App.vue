@@ -1,10 +1,14 @@
 <template>
   <div class="containter">
     <div class="row">
-      <div class="col-lg-2 left">
+      <div class="col-lg-12 left">
         <infoTypesList @selection="showInfoBox($event)" />
       </div>
+    </div>
       <!-- TODO: Insert code to create this from config -->
+    <div class="row">
+      <div class="col-lg-1">
+      </div>
       <div class="col-lg-6 middle">
         <div class="row">
           <div v-if="selectedInfoType == 'personFields'">
