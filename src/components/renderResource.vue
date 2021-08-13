@@ -2,9 +2,9 @@
   <div v-if="triple.type == 'uri'">
     <span style="cursor:pointer;" v-on:click="newSearch">
       {{ triple.prefixedValue }}
-    </span>
-    <a :href="triple.value" target="_blank">
-      <!-- <img src="/src/assets/graphdb_logo.png"> -->
+    </span><br>
+    <a class="graph_link" :href="triple.value" target="_blank">
+      <!-- <img src="@/assets/graphdb_logo.png" style="width:15px;height:15px"> -->
       [g]
     </a>
   </div>
