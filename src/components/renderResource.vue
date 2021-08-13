@@ -14,7 +14,6 @@
 </template>
 
 <script>
-// import json from "@/config/prefixes.json";
 
 export default {
   name: "renderResource",
@@ -44,7 +43,6 @@ export default {
           {?RTL ?Predicate ?Subject}.
         } limit 50`
       
-      // var resourceID = this.triple.prefixedValue.split(':')[1] // strip the prefix
       queryString = queryString.replace(/\?Subject/g,this.triple.originalValue)
 
       console.log('Query string: \n',queryString)
