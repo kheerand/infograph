@@ -56,6 +56,10 @@ export default {
       console.log("DISPLAY search is blank");
       this.validData = false;
     } else if (this.searchResults.data.startsWith("{")) {
+
+      // ***** NOTE: Code below is reduntent.  FIX IT.
+      //             Check for closing bracket and then, confirm its JSON.
+      //
       // Its most likey in JSON format so lets confirm it
       if ("data" in this.searchResults == true) {
         console.log("DISPLAY: search results are likely in JSON format");

@@ -1,10 +1,14 @@
 <template>
   <div class="containter">
     <div class="row">
-      <div class="col-lg-2 left">
+      <div class="col-lg-12 left">
         <infoTypesList @selection="showInfoBox($event)" />
       </div>
+    </div>
       <!-- TODO: Insert code to create this from config -->
+    <div class="row">
+      <div class="col-lg-1">
+      </div>
       <div class="col-lg-6 middle">
         <div class="row">
           <div v-if="selectedInfoType == 'personFields'">
@@ -25,6 +29,9 @@
           <div v-if="selectedInfoType == 'productFields'">
             <infoTypeProduct @appendText="updateText($event)" />
           </div>
+          <div v-if="selectedInfoType == 'conceptFields'">
+            <infoTypeConcept @appendText="updateText($event)" />
+          </div>
         </div>
         <div class="row">
           <div class="col-lg-6 bottom">
@@ -42,7 +49,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4 right">
+      <div class="col-lg-5 right">
         <h3>Search and key links</h3>
         <searchMain />
       </div>
@@ -57,6 +64,7 @@ import infoTypeProduct from "./components/infoTypeProduct.vue";
 import infoTypeOrganzation from "./components/infoTypeOrganization.vue";
 import infoTypeCommittee from "./components/infoTypeCommittee.vue";
 import infoTypeInfoSnippet from "./components/infoTypeInfoSnippet.vue";
+import infoTypeConcept from "./components/infoTypeConcept.vue";
 import infoTypesList from "./components/infoTypesList.vue";
 import searchMain from "./components/searchMain.vue";
 
@@ -70,6 +78,7 @@ export default {
     infoTypeInfoSnippet,
     infoTypesList,
     infoTypeProduct,
+    infoTypeConcept,
     searchMain,
   },
   data() {
