@@ -33,3 +33,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
       text-overflow: ellipsis;
       resize: vertical;
 }
+.graph_link {
+      font-size: 7pt;
+      color: lightslategray;
+}
