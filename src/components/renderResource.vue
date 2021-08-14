@@ -4,8 +4,10 @@
       {{ triple.prefixedValue }}
     </span><br>
     <a class="graph_link" :href="triple.value" target="_blank">
-      <!-- <img src="@/assets/graphdb_logo.png" style="width:15px;height:15px"> -->
       [g]
+    </a>
+    <a class="graph_link" :href="triple.visualLink" target="_blank">
+      [v]
     </a>
   </div>
   <div v-else class="truncated_text">

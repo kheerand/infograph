@@ -39,6 +39,7 @@ export default {
     return {
       prefixes: json.prefixes,
       resourcePrefix: json.resourcePrefix,
+      visualPrefix: json.visualPrefix,
       headers: ["Subject","Predicate","Object"],
       triples: [],
       validData: false,
@@ -132,6 +133,7 @@ export default {
             triple[headers[i]] = { prefixedValue: processedLine,
                                   type: "uri",
                                   value: this.resourcePrefix + encoded,
+                                  visualLink: this.visualPrefix + encoded,
                                   originalValue: line[i]
                               }
           }
