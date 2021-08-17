@@ -14,22 +14,38 @@
       </tr>
       <tr class="input_row">
         <td class="input_heading">
+          <strong v-if="fields.predicate.autoGenerate">*</strong>
           {{ fields.predicate.label }}
         </td>
         <td class="input_input">
-          <input type="text" v-model.trim="fields.predicate.value" accesskey="w" />
+          <input
+            type="text"
+            v-model.trim="fields.predicate.value"
+            @blur="formatInput(-10)"
+            accesskey="w"
+          />
         </td>
       </tr>
       <tr class="input_row" v-for="subject in fields.subjects" :key="subject">
         <td v-if="subject.display == true" class="input_heading">
+          <strong v-if="subject.autoGenerate">*</strong>
           {{ subject.label }}
         </td>
         <td v-if="subject.display == true" class="input_input">
           <span v-if="subject.inputType == 'textarea'">
-            <textarea rows="4" cols="50" v-model="subject.value" />
+            <textarea
+              rows="4"
+              cols="50"
+              v-model="subject.value"
+              @blur="formatInput(i)"
+            />
           </span>
           <span v-else>
-            <input :type="subject.inputType" v-model.trim="subject.value" />
+            <input
+              :type="subject.inputType"
+              v-model.trim="subject.value"
+              @blur="formatInput(i)"
+            />
           </span>
         </td>
       </tr>
@@ -66,6 +82,86 @@ export default {
     };
   },
   methods: {
+    formatInput(index) {
+      var date = new Date();
+      var field = null;
+
+      if (index == -10) {
+        // Its the predicate
+        field = this.fields.predicate;
+      } else {
+        // its not a predicate
+        console.log("Not a predicate");
+        field = this.fields.subjects[index];
+      }
+      if (!field.autoGenerate) {
+        return;
+      } else {
+        if (field.value.length == 0) {
+          var newValue = field.autoGenTemplate;
+          var count = 0;
+          const maxLoops = 100;
+
+          while (newValue.search("%") > 0 && count < maxLoops) {
+            var tag = newValue[newValue.search("%") + 1];
+            switch (tag) {
+              case "Y":
+                newValue = newValue.replace(/%Y/, date.getFullYear());
+                break;
+              case "M":
+                newValue = newValue.replace(
+                  /%M/,
+                  date
+                    .getMonth()
+                    .toLocaleString("en-US", { minimumIntegerDigits: 2 })
+                );
+                break;
+              case "D":
+                newValue = newValue.replace(
+                  /%D/,
+                  date
+                    .getDate()
+                    .toLocaleString("en-US", { minimumIntegerDigits: 2 })
+                );
+                break;
+              case "h":
+                newValue = newValue.replace(
+                  /%h/,
+                  date
+                    .getHours()
+                    .toLocaleString("en-US", { minimumIntegerDigits: 2 })
+                );
+                break;
+              case "m":
+                newValue = newValue.replace(
+                  /%m/,
+                  date
+                    .getMinutes()
+                    .toLocaleString("en-US", { minimumIntegerDigits: 2 })
+                );
+                break;
+              case "s":
+                newValue = newValue.replace(
+                  /%s/,
+                  date
+                    .getSeconds()
+                    .toLocaleString("en-US", { minimumIntegerDigits: 2 })
+                );
+                break;
+              case "P":
+                newValue = newValue.replace(/%P/, field.predicate.value);
+                break;
+              // We shouldn't ever get here...
+              default:
+                newValue = newValue.replace(/%/, "");
+                break;
+            }
+            count++;
+          }
+          field.value = newValue;
+        }
+      }
+    },
     adjustedValue(predicate, val) {
       var computedVal = String;
 
@@ -92,6 +188,4 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-@import url("component.css")
-</style>
+<style scoped src="@/components/component.css" />
