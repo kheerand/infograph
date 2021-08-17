@@ -14,7 +14,7 @@
       </tr>
       <tr class="input_row">
         <td class="input_heading">
-          <strong v-if="subject.autoGenerate">*</strong>
+          <strong v-if="fields.predicate.autoGenerate">*</strong>
           {{ fields.predicate.label }}
         </td>
         <td class="input_input">
