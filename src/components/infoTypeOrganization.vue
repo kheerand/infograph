@@ -14,14 +14,14 @@
       </tr>
       <tr class="input_row">
         <td class="input_heading">
-          <strong v-if="subject.autoGenerate">*</strong>
+          <strong v-if="fields.predicate.autoGenerate">*</strong>
           {{ fields.predicate.label }}
         </td>
         <td class="input_input">
           <input
             type="text"
             v-model.trim="fields.predicate.value"
-                        @blur="formatInput(-10)"
+            @blur="formatInput(-10)"
             accesskey="w"
           />
         </td>
@@ -33,10 +33,19 @@
         </td>
         <td v-if="subject.display == true" class="input_input">
           <span v-if="subject.inputType == 'textarea'">
-            <textarea rows="4" cols="50" v-model="subject.value"               @blur="formatInput(i)" />
+            <textarea
+              rows="4"
+              cols="50"
+              v-model="subject.value"
+              @blur="formatInput(i)"
+            />
           </span>
           <span v-else>
-            <input :type="subject.inputType" v-model.trim="subject.value"               @blur="formatInput(i)"/>
+            <input
+              :type="subject.inputType"
+              v-model.trim="subject.value"
+              @blur="formatInput(i)"
+            />
           </span>
         </td>
       </tr>
@@ -73,7 +82,7 @@ export default {
     };
   },
   methods: {
-        formatInput(index) {
+    formatInput(index) {
       var date = new Date();
       var field = null;
 
