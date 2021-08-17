@@ -1,5 +1,6 @@
 {
-	"resourcePrefix":"http://192.168.1.155:7200/resource?",
+	"resourcePrefix":"http://192.168.1.155:7200/resource?config=09399a5c697a49bdac3be26fc4e386ca&",
+	"visualPrefix":"http://192.168.1.155:7200/graphs-visualizations?config=09399a5c697a49bdac3be26fc4e386ca&",
 	"prefixes": [
 		{
 			"prefix": ":",

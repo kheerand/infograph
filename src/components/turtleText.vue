@@ -1,15 +1,10 @@
 <template>
-  <div id="turtle_preamble">
-    <h4>Turtle snippet</h4>
-    <p>
-      <em>Paste the turtle snippet below to GraphDB</em>
-    </p>
-    <hr />
-  </div>
   <span>
-    <p><button type="button" v-on:click="updateEvent" accesskey="a"> Update text </button></p>
+      <span style="cursor:pointer" v-on:click="toggleText"><strong>{{ showIcon }}</strong></span>
+      <button class="button_slim" type="button" v-on:click="updateEvent" accesskey="a"> Update text </button>
   </span>
 
+  <div v-if="showTurtleText">
   <div id="turtle_prefixes">
     <p>
       <span v-for="prefix in prefixes" :key="prefix"> {{ prefix }}<br /> </span>
@@ -33,10 +28,12 @@
         <span v-if="subject.isClass == true">
           :{{ adjustedValue(fields.predicate.value, subject.value) }} a
           {{ subject.classType }}. <br />
+          :{{ adjustedValue(fields.predicate.value, subject.value) }} rdfs:label {{ subject.label }}. <br/>
         </span>
       </span>
     </span>
   </span>
+  </div>
 </template>
 
 <script>
@@ -47,8 +44,26 @@ export default {
     prefixes: Object,
     fields: Object,
   },
+  data () { 
+    return {
+      showTurtleText: false,
+    };
+  },
+  computed: {
+    showIcon() {
+      if (this.showTurtleText) {
+        return ("[-]")
+      }
+      else {
+        return("[+]")
+      }
+    }
+  },
   mounted: function () {},
   methods: {
+    toggleText() {
+      this.showTurtleText = !this.showTurtleText;
+    },
     adjustedValue(predicate, val) {
       var computedVal = String;
 
@@ -100,6 +115,9 @@ export default {
             textString += ":" + this.adjustedValue(fields.predicate.value, 
                                               subject.value) +
                             " a " + subject.classType + ".\n";
+            textString += ":" + this.adjustedValue(fields.predicate.value, 
+                                              subject.value) + 
+                            " rdfs:label \"" + subject.label + "\".\n";
           }
         }
                       

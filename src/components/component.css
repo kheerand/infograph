@@ -51,3 +51,23 @@ a:hover {
 .input_input {
       text-align: left;
 }
+.button_slim {
+      font-size: 8pt;
+}
+.code {
+      background-color:linen;
+      font-size: 8pt;
+      text-align: left;
+      font-family: 'Courier New', Courier, monospace;
+}
+.small_text {
+      font-size: 8pt;
+}
+.left_align {
+      text-align: left;
+}
+.sub_title {
+      font-size: 14pt;
+      font-weight: bold;
+      color: royalblue;
+}

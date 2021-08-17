@@ -1,9 +1,11 @@
 <template>
-  <div class="hello">
-    <h1>Canned Searches</h1>
-    <table id="cannedSearches">
-      <tr>
-        <td id="searchOptions">
+    <div class="row">
+      <span class="sub_title">
+      Canned Searches
+      </span>
+    </div>
+      <div class="row">
+        <div class="col-lg-4" id="searchOptions">
           <select v-model="choice" accesskey="s">
             <!-- <option disabled value="">Select search</option> -->
             <option v-for="(search, index) in searches" 
@@ -14,33 +16,24 @@
               {{ search.name }}
             </option>
           </select>
-        </td>
-        <td id="searchQuery">
-          <table>
-            <tr>
-              <td>
+        </div>
+        <div class="col-lg-8 left_align" id="searchQuery">
+            <div class="row">
                 {{searches[choice].description}}
-              </td>
-            </tr>
-            <tr v-for="term in searches[choice].terms" :key="term">
-              <td>
+            </div>
+            <div class="row" v-for="term in searches[choice].terms" :key="term">
+              <div class="col-lg-4">
                 {{ term.name }}
-              </td>
-              <td>
+              </div>
+              <div class="col-lg-8">
                 <input type="text" v-model="term.value" v-on:keyup.enter="runQuery" />
-              </td>
-            </tr>
-            <!-- <tr style="white-space: pre-wrap;text-align: left">
-              {{computedQuery}}
-            </tr> -->
-          </table>
-        </td>
-      </tr>
-    </table>
+              </div>
+            </div>
+        </div>
+        </div>
     <p>
       <button type="button" v-on:click="runQuery">Search</button>
     </p>
-  </div>
 </template>
 
 <script>

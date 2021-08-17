@@ -2,7 +2,7 @@
   <div class="Search_Output">
     <searchCannedSearches @queryString="updateQuery($event)"/>
     <searchQuery :query="query" @queryResult="updateResults($event)"/>
-    <searchDisplayResults :searchResults="searchResults"/>
+    <searchDisplayResults :searchResults="searchResults" @queryString="updateQuery($event)"/>
   </div>
 </template>
 

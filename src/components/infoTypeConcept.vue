@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import json from "@/config/infoTypePerson.json"; // Change it so that this can be specified during app call.
+import json from "@/config/infoTypeConcept.json"; // Change it so that this can be specified during app call.
 import turtleText from "@/components/turtleText.vue";
 
 export default {
