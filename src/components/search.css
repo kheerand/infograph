@@ -25,11 +25,15 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 }
 .results_values {
       white-space:pre-wrap;
-      font-size: 9pt;
+      font-size: 9.5pt;
 }
 .truncated_text {
       height: 80px;
       overflow: auto;
       text-overflow: ellipsis;
       resize: vertical;
+}
+.graph_link {
+      font-size: 7pt;
+      color: lightslategray;
 }

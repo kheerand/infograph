@@ -2,14 +2,14 @@
   <div class="Search_Output">
     <searchCannedSearches @queryString="updateQuery($event)"/>
     <searchQuery :query="query" @queryResult="updateResults($event)"/>
-    <searchDisplayResults :searchResults="searchResults"/>
+    <searchDisplayResults :searchResults="searchResults" @queryString="updateQuery($event)"/>
   </div>
 </template>
 
 <script>
 import searchCannedSearches from "@/components/searchCannedSearches.vue";
 import searchQuery from "@/components/searchQuery.vue";
-import searchDisplayResults from "@/components/searchDisplayResults2.vue"
+import searchDisplayResults from "@/components/searchDisplayResults.vue"
 
 export default {
   components: { 

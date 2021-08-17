@@ -1,10 +1,14 @@
 <template>
   <div class="containter">
     <div class="row">
-      <div class="col-lg-2 left">
+      <div class="col-lg-12 left">
         <infoTypesList @selection="showInfoBox($event)" />
       </div>
+    </div>
       <!-- TODO: Insert code to create this from config -->
+    <div class="row">
+      <div class="col-lg-1">
+      </div>
       <div class="col-lg-6 middle">
         <div class="row">
           <div v-if="selectedInfoType == 'personFields'">
@@ -45,7 +49,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4 right">
+      <div class="col-lg-5 right">
         <h3>Search and key links</h3>
         <searchMain />
       </div>
