@@ -13,7 +13,9 @@
 			"label": "Name ID",
 			"class": "schema:NewsArticle",
 			"literal": false,
-			"value": ""
+			"value": "",
+			"autoGenerate": true,
+			"autoGenTemplate": "Note_%Y%M%D_%h%m%s"
 		},
 		"subjects": [
 			{
@@ -41,7 +43,9 @@
 				"isClass": false,
 				"literal": true,
 				"display": true,
-				"value": ""
+				"value": "",
+				"autoGenerate": true,
+				"autoGenTemplate": "%Y-%M-%D"
 			},
 			{
 				"label": "Source",
