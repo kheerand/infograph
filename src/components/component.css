@@ -21,6 +21,27 @@ a:hover {
       text-decoration: underline;
 }
 
+/* ==========
+   ID styling
+   ---------- */
+#turtle_text {
+      text-align: left;
+      background: aliceblue;
+}
+#turtle_preamble {
+      background: rgb(241, 240, 255);
+}
+#infoTypeSelection {
+      text-align: left;
+}
+#turtle_snippet {
+      text-align: left;
+      background: aliceblue;
+}
+#turtle_prefixes {
+}
+
+
 /* =============
    Class styling
    ------------- */
@@ -49,58 +70,4 @@ a:hover {
       font-size: 14pt;
       font-weight: bold;
       color: royalblue;
-}
-.left {
-      /* float: left; */
-      /* width: 10vw; */
-      background-color: lightcyan;
-}
-.middle {
-      /* float: left; */
-      background-color: lightgoldenrodyellow;
-      /* width: 45vw; */
-}
-.right {
-      /* float: left; */
-      background-color: silver;
-      /* width: 45vw; */
-}
-.bottom {
-      /* clear: both; */
-      /* float: left; */
-}
-.alignLeft {
-      text-align: left;
-}
-
-
-/* ==========
-   ID styling
-   ---------- */
-#app {
-      font-family: Avenir, Helvetica, Arial, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      text-align: center;
-      color: #2c3e50;
-      margin-top: 60px;
-}
-#clearButton {
-      background-color: lightcoral;
-}
-#turtle_text {
-      text-align: left;
-      background: aliceblue;
-}
-#turtle_preamble {
-      background: rgb(241, 240, 255);
-}
-#infoTypeSelection {
-      text-align: left;
-}
-#turtle_snippet {
-      text-align: left;
-      background: aliceblue;
-}
-#turtle_prefixes {
 }

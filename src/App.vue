@@ -112,4 +112,38 @@ export default {
 };
 </script>
 
-<style src="@/components/component.css" />
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+#clearButton {
+  background-color: lightcoral;
+}
+.left {
+  /* float: left; */
+  /* width: 10vw; */
+  background-color: lightcyan;
+}
+.middle {
+  /* float: left; */
+  background-color: lightgoldenrodyellow;
+  /* width: 45vw; */
+}
+.right {
+  /* float: left; */
+  background-color: thistle;
+  /* width: 45vw; */
+}
+.bottom {
+  /* clear: both; */
+  /* float: left; */
+}
+.alignLeft {
+  text-align: left;
+}
+</style>
