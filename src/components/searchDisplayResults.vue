@@ -2,18 +2,18 @@
   <div class="Search_Output">
     <h4>Results</h4>
     <div v-if="validData">
-      <table class="table search_results">
-        <tr class="results_heading">
-          <td v-for="h in headers" :key="h">
+      <div class="container table search_results">
+        <div class="row results_heading">
+          <div class="col" v-for="h in headers" :key="h">
             {{ h }}
-          </td>
-        </tr>
-        <tr class="results_values" v-for="triple in triples" :key="triple">
-          <td v-for="h in headers" :key="h">
+          </div>
+        </div>
+        <div class="row results_values" v-for="triple in triples" :key="triple">
+          <div class="col" v-for="h in headers" :key="h">
             <renderResource :triple="triple[h]" @queryString="passEvent($event)" />
-          </td>
-        </tr>
-      </table>
+          </div>
+        </div>
+      </div>
       <iframe name="graphdb_view" width="600" height="300" />
     </div>
     <div v-else>
