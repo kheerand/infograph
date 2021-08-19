@@ -20,7 +20,7 @@
 				"CONSTRUCT { ?Subject ?Predicate ?Object. }",
 				"where {",
 				"    ?Subject ?Predicate ?Object .",
-				"    FILTER regex(?Object, '??object','i')",
+				"    FILTER regex(str(?Object), '??object','i')",
 				"    FILTER not exists { ?Subject rdf:type ?Object }",
 				"} limit 50 "
 			]
