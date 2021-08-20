@@ -69,8 +69,19 @@ export default {
 
       if (val.substring(0, 2) == "++") {
         computedVal = predicate + "_" + val.substring(2);
-      } else {
-        computedVal = val;
+      } 
+      else {
+        if (val.startsWith('[') && val.endsWith(']')) {
+          // Its a list of items
+          let value = val.slice(1,val.length-1);
+          // strip any spaces after the , in the string
+          value = value.replace(/ +/g,"");
+          value = value.replace(/,/g,", :");
+          computedVal = value;
+        }
+        else {
+          computedVal = val;
+        }
       }
       return computedVal;
     },
