@@ -19,10 +19,13 @@
 				"",
 				"CONSTRUCT { ?Subject ?Predicate ?Object. }",
 				"where {",
-				"    ?Subject ?Predicate ?Object .",
-				"    FILTER regex(str(?Object), '??object','i')",
-				"    FILTER not exists { ?Subject rdf:type ?Object }",
-				"} limit 50 "
+				"      SELECT DISTINCT *",
+				"      where {",
+				"          ?Subject ?Predicate ?Object .",
+				"          FILTER regex(str(?Object), '??object','i')",
+				"          FILTER not exists { ?Subject rdf:type ?Object }",
+				"      } limit 50 ",
+				"}"
 			]
 		},
 		{
@@ -44,12 +47,15 @@
 				"",
 				"CONSTRUCT { ?Subject ?Predicate ?Object. }",
 				"where {",
-				"    ?Subject ?Predicate ?Object .",
-				"    {FILTER regex(str(?Object), '??object','i')}",
-				"     UNION",
-				"    {FILTER regex(str(?Subject), '??object','i')}",
-				"    FILTER not exists { ?Subject rdf:type ?Object }",
-				"} limit 50 "
+				"       SELECT DISTINCT *",
+				"       where {",
+				"           ?Subject ?Predicate ?Object .",
+				"           {FILTER regex(str(?Object), '??object','i')}",
+				"           UNION",
+				"           {FILTER regex(str(?Subject), '??object','i')}",
+				"           FILTER not exists { ?Subject rdf:type ?Object }",
+				"      } limit 50 ",
+				"}"
 			]
 		},
 		{
