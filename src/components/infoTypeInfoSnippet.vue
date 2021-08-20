@@ -96,7 +96,6 @@ export default {
         field = this.fields.predicate;
       } else {
         // its not a predicate
-        console.log("Not a predicate");
         field = this.fields.subjects[index];
       }
       if (!field.autoGenerate) {
@@ -107,7 +106,7 @@ export default {
           var count = 0;
           const maxLoops = 100;
 
-          while (newValue.search("%") > 0 && count < maxLoops) {
+          while (newValue.search("%") >= 0 && count < maxLoops) {
             var tag = newValue[newValue.search("%") + 1];
             switch (tag) {
               case "Y":

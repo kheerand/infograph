@@ -4,7 +4,6 @@
 /* =============== 
    HTML tag styles
    --------------- */
-tr:nth-child(even) {background-color: #f2f2f2;}
 
 /* ==========
    ID styling
@@ -21,11 +20,15 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 .results_heading {
       text-align: center;
       font-size: 14pt;
-      background-color: #02a36b;
+      background-color: lightsteelblue;
 }
 .results_values {
+      background-color:floralwhite;
       white-space:pre-wrap;
       font-size: 9.5pt;
+}
+.results_values:nth-child(even) {
+      background-color: linen;
 }
 .truncated_text {
       height: 80px;
