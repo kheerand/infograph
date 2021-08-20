@@ -138,6 +138,7 @@ export default {
                               }
           }
           else {
+            processedLine = processedLine.substring(0,processedLine.length-2); // Remove the ' .' from the end.
             triple[headers[i]] = { prefixedValue: processedLine,
                                 type: "literal",
                                 value: "" };
