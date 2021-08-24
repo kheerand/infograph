@@ -115,12 +115,9 @@ export default {
               case "M":
                 // Stupid getMonth() is zero indexed while everything else isn't!!!
                 //    https://stackoverflow.com/questions/18624326/getmonth-in-javascript-gives-previous-month
-                newValue = newValue.replace(
-                  /%M/,
-                  date
-                    .getMonth()+1
-                    .toLocaleString("en-US", { minimumIntegerDigits: 2 })
-                );
+                var month = date.getMonth()+1
+                month = month.toLocaleString("en-US", { minimumIntegerDigits: 2 }) 
+                newValue = newValue.replace( /%M/, month);
                 break;
               case "D":
                 newValue = newValue.replace(
