@@ -113,10 +113,12 @@ export default {
                 newValue = newValue.replace(/%Y/, date.getFullYear());
                 break;
               case "M":
+                // Stupid getMonth() is zero indexed while everything else isn't!!!
+                //    https://stackoverflow.com/questions/18624326/getmonth-in-javascript-gives-previous-month
                 newValue = newValue.replace(
                   /%M/,
                   date
-                    .getMonth()
+                    .getMonth()+1
                     .toLocaleString("en-US", { minimumIntegerDigits: 2 })
                 );
                 break;
